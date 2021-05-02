@@ -13,16 +13,24 @@ import { NebularModule } from './modules/nebular/nebular.module';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
-import { LayoutComponent } from './user/layout/layout.component';
-import { RegisterComponent } from './company/register/register.component';
-import { LoginComponent } from './company/login/login.component';
-import { AddBetaTestComponent } from './company/add-beta-test/add-beta-test.component';
-import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-test.component';
-import { AddReviewComponent } from './main/add-review/add-review.component';
-import { CompanyLayoutComponent } from './company/company-layout/company-layout.component';
+import { LayoutComponent } from './authentication/layout/layout.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ManageUsersComponent } from './admin/manageusers/manageusers.component';
 
+import { NgsRevealModule } from 'ngx-scrollreveal';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import {
+  SocialLoginModule,
+  SocialAuthServiceConfig,
+} from 'angularx-social-login';
 
-
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { app_config } from 'src/config';
 
 @NgModule({
   declarations: [
@@ -34,15 +42,8 @@ import { CompanyLayoutComponent } from './company/company-layout/company-layout.
     SignupComponent,
     ResetPasswordComponent,
     LayoutComponent,
-    RegisterComponent,
-    LoginComponent,
-    AddBetaTestComponent,
-    ManageBetaTestComponent,
-    AddReviewComponent,
-    CompanyLayoutComponent,
-  
-    
-    
+    ProfileComponent,
+    ManageUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,8 +55,30 @@ import { CompanyLayoutComponent } from './company/company-layout/company-layout.
     NbSidebarModule.forRoot(),
 
     NebularModule,
+    NgsRevealModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    SweetAlert2Module,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(app_config.OAuthID),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

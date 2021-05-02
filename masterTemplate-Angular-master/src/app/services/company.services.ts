@@ -6,7 +6,7 @@ import { app_config } from 'src/config';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class CompanyService {
   url = app_config.api_url + '/company';
  
 

@@ -1,3 +1,19 @@
+html,
 body {
-  font-family: Raleway;
+  height: 100%;
 }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.login {
+  background: url("assets/login_back.jpeg") no-repeat center;
+}
+
+.register {
+  background: url("assets/register_back.png") no-repeat center;
+  background-attachment: fixed;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

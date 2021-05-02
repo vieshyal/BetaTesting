@@ -3,27 +3,49 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
 import { LayoutComponent as UserLayout } from './user/layout/layout.component';
+import { LayoutComponent as AppLayoutComponent } from './authentication/layout/layout.component';
+import { SignupComponent } from './authentication/signup/signup.component';
+import { SigninComponent } from './authentication/signin/signin.component';
+import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
+import { AdminGuard } from './guards/admin.guard';
+import { ManageUsersComponent } from './admin/manageusers/manageusers.component';
+import { ManageCompanysComponent} from './admin/managecompanys/managecompanys.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
+  {
+    path: 'app',
+    component: AppLayoutComponent,
+    children: [
+      { path: 'signup', component: SignupComponent },
+      { path: 'signin', component: SigninComponent },
+      { path: 'reset', component: ResetPasswordComponent },
+    ],
+  },
+
   {
     path: 'admin',
     component: AdminLayout,
-    children: [{ path: 'dashboard', component: DashboardComponent }],
+    canActivate: [AdminGuard],
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'manageuser', component: ManageUsersComponent },
+      { path: 'managecompanys', component: ManageCompanysComponent},
+      { path: 'profile', component: ProfileComponent },
+    ],
   },
   {
     path: 'user',
     component: UserLayout,
-    children: [],
+    canActivate: [LoginGuard],
+    children: [
+      { path: '', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent },
+    ],
   },
-  {
-    path: 'company',
-    component: companyLayout,
-    children: [],
-  },
-  path: 'admin',
-  component: adminLayout,
-  children: [],
-}
 ];
 
 @NgModule({

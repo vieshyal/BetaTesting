@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    this.getBlogs();
+   
   }
 
   // getSellers() {
@@ -37,13 +37,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  getBlogs() {
-    this.blogservice.getAllBlogs().subscribe((data) => {
-      console.log(data);
-      this.blogsList = data;
-      this.prepareBlogData(this.blogsList);
-    });
-  }
+
 
   drawchart(id, datapoints, title, unit, xlabel) {
     var chart = new CanvasJS.Chart(id, {
