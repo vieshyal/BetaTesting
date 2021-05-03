@@ -13,16 +13,15 @@ import { NebularModule } from './modules/nebular/nebular.module';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
-import { LayoutComponent } from './user/layout/layout.component';
+import { LayoutComponent } from './authentication/layout/layout.component';
 import { RegisterComponent } from './company/register/register.component';
 import { LoginComponent } from './company/login/login.component';
 import { AddBetaTestComponent } from './company/add-beta-test/add-beta-test.component';
 import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-test.component';
 import { AddReviewComponent } from './main/add-review/add-review.component';
 import { CompanyLayoutComponent } from './company/company-layout/company-layout.component';
-
-
-
+import { NgsRevealModule } from 'ngx-scrollreveal';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -40,9 +39,6 @@ import { CompanyLayoutComponent } from './company/company-layout/company-layout.
     ManageBetaTestComponent,
     AddReviewComponent,
     CompanyLayoutComponent,
-  
-    
-    
   ],
   imports: [
     BrowserModule,
@@ -52,8 +48,9 @@ import { CompanyLayoutComponent } from './company/company-layout/company-layout.
     NbLayoutModule,
     NbEvaIconsModule,
     NbSidebarModule.forRoot(),
-
     NebularModule,
+    NgsRevealModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
