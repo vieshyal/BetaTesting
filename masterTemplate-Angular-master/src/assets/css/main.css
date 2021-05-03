@@ -79,7 +79,7 @@ input, select, textarea {
 	}
 
 	body {
-		-ms-overflow-style: scrollbar;
+		-ms-overflow-style: scrrollbar;
 	}
 
 	@media screen and (max-width: 480px) {
