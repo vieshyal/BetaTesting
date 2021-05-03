@@ -12,12 +12,34 @@ import { RegisterComponent as AdminRegisterComponent } from './company/register/
 import { LoginComponent as AdminLoginComponent } from './company/login/login.component';
 import { AddBetaTestComponent } from './company/add-beta-test/add-beta-test.component';
 import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-test.component';
+import { AdminGuard } from './guards/admin.guard';
+import { ManageUsersComponent } from './admin/manageusers/manageusers.component';
+import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
+  {
+    path: 'app',
+    component: AppLayout,
+    children: [
+      { path: 'signup', component: SignupComponent },
+      { path: 'signin', component: SigninComponent },
+      { path: 'reset', component: ResetPasswordComponent },
+    ],
+  },
+
   {
     path: 'admin',
     component: AdminLayout,
-    children: [{ path: 'dashboard', component: DashboardComponent }],
+    canActivate: [AdminGuard],
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'manageuser', component: ManageUsersComponent },
+      { path: 'managecompanys', component: ManageCompanysComponent},
+      { path: 'profile', component: ProfileComponent },
+    ],
   },
   {
     path: 'user',

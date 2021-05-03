@@ -24,6 +24,8 @@ import {
     NbActionsModule,
     NbSearchModule,
     NbMenuModule,
+    NbActionsModule,
+    NbCardModule,
   ],
   imports: [CommonModule],
 })
