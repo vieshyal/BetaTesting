@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CompanyService } from 'src/app/services/company.service';
 import { UserService } from 'src/app/services/user.service';
-import { CompanyService } from 'src/app/services/company.services';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-manage-users',
-  templateUrl: './manage-users.component.html',
-  styleUrls: ['./manage-users.component.css'],
+  selector: 'app-manageusers',
+  templateUrl: './manageusers.component.html',
+  styleUrls: ['./manageusers.component.css'],
 })
 export class ManageUsersComponent implements OnInit {
   usersList: any;
   loadingUsers = true;
 
-  constructor(public userService: UserService, private router: Router) {}
+  constructor(
+    public userService: UserService,
+    private router: Router,
+    public companyService: CompanyService
+  ) {}
 
   ngOnInit(): void {
     this.fetchUsers();

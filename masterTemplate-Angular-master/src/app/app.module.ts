@@ -37,6 +37,7 @@ import { AddBetaTestComponent } from './company/add-beta-test/add-beta-test.comp
 import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-test.component';
 import { AddReviewComponent } from './main/add-review/add-review.component';
 import { CompanyLayoutComponent } from './company/company-layout/company-layout.component';
+import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CompanyLayoutComponent } from './company/company-layout/company-layout.
     AddReviewComponent,
     CompanyLayoutComponent,
     ProfileComponent,
+    ManageCompanysComponent,
   ],
   imports: [
     BrowserModule,
