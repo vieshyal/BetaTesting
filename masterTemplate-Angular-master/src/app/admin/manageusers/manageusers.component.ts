@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { CompanyService } from 'src/app/services/company.services';
 import Swal from 'sweetalert2';
+//import { AnyMxRecord } from 'node:dns';
 
 @Component({
   selector: 'app-manage-users',
@@ -26,7 +27,7 @@ export class ManageUsersComponent implements OnInit {
     });
   }
 
-  deleteUser(id) {
+  deleteUser(id:any) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -51,5 +52,5 @@ export class ManageUsersComponent implements OnInit {
     });
   }
 
-  updateUser(id) {}
+  updateUser(id:any) {}
 }
