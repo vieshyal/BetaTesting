@@ -37,7 +37,7 @@ const routes: Routes = [
       { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageuser', component: ManageUsersComponent },
-      { path: 'managecompanys', component: ManageCompanysComponent},
+      { path: 'managecompanys', component: ManageCompanysComponent },
       { path: 'profile', component: ProfileComponent },
     ],
   },
