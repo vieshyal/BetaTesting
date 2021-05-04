@@ -31,18 +31,32 @@ import {
 
 import { GoogleLoginProvider } from 'angularx-social-login';
 import { app_config } from 'src/config';
+import { RegisterComponent } from './company/register/register.component';
+import { LoginComponent } from './company/login/login.component';
+import { AddBetaTestComponent } from './company/add-beta-test/add-beta-test.component';
+import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-test.component';
+import { AddReviewComponent } from './main/add-review/add-review.component';
+import { CompanyLayoutComponent } from './company/company-layout/company-layout.component';
+import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayout,
     UserLayout,
+    AdminLayout,
     DashboardComponent,
     SigninComponent,
     SignupComponent,
     ResetPasswordComponent,
-    LayoutComponent,
+    RegisterComponent,
+    LoginComponent,
+    AddBetaTestComponent,
+    ManageBetaTestComponent,
+    AddReviewComponent,
+    CompanyLayoutComponent,
     ProfileComponent,
+    ManageCompanysComponent,
+    LayoutComponent,
     ManageUsersComponent,
   ],
   imports: [
@@ -53,7 +67,6 @@ import { app_config } from 'src/config';
     NbLayoutModule,
     NbEvaIconsModule,
     NbSidebarModule.forRoot(),
-
     NebularModule,
     NgsRevealModule,
     MatFormFieldModule,

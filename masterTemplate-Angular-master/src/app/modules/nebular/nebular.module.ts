@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   NbAccordionModule,
+  NbActionsModule,
   NbButtonModule,
   NbCardModule,
   NbIconModule,
+  NbSearchModule,
   NbSidebarModule,
   NbUserModule,
-  NbActionsModule,
-  NbSearchModule,
   NbMenuModule,
 } from '@nebular/theme';
 

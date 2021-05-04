@@ -22,15 +22,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.initSignupForm();
-    document
-      .getElementsByTagName('nb-layout-column')[0]
-      .classList.add('register');
-  }
-
-  ngOnDestroy() {
-    document
-      .getElementsByTagName('nb-layout-column')[0]
-      .classList.remove('register');
   }
 
   initSignupForm() {

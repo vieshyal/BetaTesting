@@ -3,7 +3,6 @@ import { UserService } from 'src/app/services/user.service';
 import * as CanvasJS from '../../../assets/canvasjs.min';
 import { Observable } from 'rxjs';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,22 +11,11 @@ import { Observable } from 'rxjs';
 export class DashboardComponent implements OnInit {
   usersList: any;
   blogsList: any;
-  constructor(
-    public userService: UserService,
-   
-  ) {}
+  constructor(public userService: UserService) {}
 
   ngOnInit(): void {
     this.getUsers();
-   
   }
-
-  // getSellers() {
-  //   this.sellerservice.getAllSellers().subscribe(data => {
-  //     console.log(data);
-  //     this.sellers = data;
-  //   })
-  // }
 
   getUsers() {
     this.userService.getAll().subscribe((data) => {
@@ -36,8 +24,6 @@ export class DashboardComponent implements OnInit {
       this.prepareRegData(this.usersList);
     });
   }
-
-
 
   drawchart(id, datapoints, title, unit, xlabel) {
     var chart = new CanvasJS.Chart(id, {
@@ -71,20 +57,6 @@ export class DashboardComponent implements OnInit {
         'Registration Data',
         'registration(s)',
         'No. of Registrations'
-      );
-    });
-  }
-
-  prepareBlogData(blogs) {
-    this.getDatewiseValues(blogs, 'created').subscribe((data) => {
-      console.log(data);
-      let regData = data;
-      this.drawchart(
-        'blogByDate',
-        regData,
-        'Blogs Data',
-        'blog(s) created',
-        'No. of Blogs'
       );
     });
   }

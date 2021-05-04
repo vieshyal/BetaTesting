@@ -8,18 +8,11 @@ import { app_config } from 'src/config';
 })
 export class CompanyService {
   url = app_config.api_url + '/company';
- 
-
-  constructor(private http: HttpClient, private router: Router) {
-    
-    
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   addCompany(data: any) {
     return this.http.post(this.url + '/add', data);
   }
-
-
 
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);
@@ -36,8 +29,4 @@ export class CompanyService {
   uploadAvatar(file: any) {
     return this.http.post(app_config.api_url + '/util/addimg', file);
   }
-
-  
-
-  
 }
