@@ -5,8 +5,8 @@
             <p class="h4">Manage company</p>
         </nb-card-header>
         <nb-card-body>
-            <nb-accordion *ngIf="usersList">
-                <nb-accordion-item *ngFor="let user of usersList">
+            <nb-accordion *ngIf="companysList">
+                <nb-accordion-item *ngFor="let company of companysList">
                   <nb-accordion-item-header>
                     {{company.name}}
                   </nb-accordion-item-header>
@@ -14,11 +14,11 @@
                     {{company.desc}}
                     <div class="row mt-5">
                         <div class="col text-center">
-                            <button class="col-10" nbButton (click)="updateUser(user._id)">Edit</button>
+                            <button class="col-10" nbButton (click)="updateUser(company._id)">Edit</button>
                         </div>
                         
                         <div class="col text-center">
-                            <button class="col-10" nbButton hero (click)="deleteUser(user._id)" status  ="danger">Delete</button>
+                            <button class="col-10" nbButton hero (click)="deleteUser(company._id)" status  ="danger">Delete</button>
                         </div>
                     </div>
                   </nb-accordion-item-body>

@@ -56,6 +56,8 @@ import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.c
     CompanyLayoutComponent,
     ProfileComponent,
     ManageCompanysComponent,
+    LayoutComponent,
+    ManageUsersComponent,
   ],
   imports: [
     BrowserModule,
