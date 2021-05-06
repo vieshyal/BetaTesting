@@ -38,6 +38,7 @@ import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-
 import { AddReviewComponent } from './main/add-review/add-review.component';
 import { CompanyLayoutComponent } from './company/company-layout/company-layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.c
     ManageCompanysComponent,
     LayoutComponent,
     ManageUsersComponent,
+    ContactusComponent,
   ],
   imports: [
     BrowserModule,

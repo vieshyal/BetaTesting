@@ -8,11 +8,11 @@ body {
 }
 
 .login {
-  background: url("assets/login_back.jpeg") no-repeat center;
+  background: url("assets/login_back.jpeg") no-repeat ;
 }
 
 .register {
-  background: url("assets/register_back.png") no-repeat center;
+  background: url("assets/register_back.png") no-repeat;
   background-attachment: fixed;
 }
 html, body { height: 100%; }

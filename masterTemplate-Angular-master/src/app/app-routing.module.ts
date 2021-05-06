@@ -8,14 +8,15 @@ import { LayoutComponent as AppLayout } from './authentication/layout/layout.com
 import { SignupComponent } from './authentication/signup/signup.component';
 import { SigninComponent } from './authentication/signin/signin.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
-import { RegisterComponent as AdminRegisterComponent } from './company/register/register.component';
-import { LoginComponent as AdminLoginComponent } from './company/login/login.component';
+import { RegisterComponent as AdminRegisterComponent, RegisterComponent } from './company/register/register.component';
+import { LoginComponent as AdminLoginComponent, LoginComponent } from './company/login/login.component';
 import { AddBetaTestComponent } from './company/add-beta-test/add-beta-test.component';
 import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-test.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ManageUsersComponent } from './admin/manageusers/manageusers.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'reset', component: ResetPasswordComponent },
+      { path: 'contactus', component: ContactusComponent}
     ],
   },
 
@@ -52,6 +54,8 @@ const routes: Routes = [
     children: [
       { path: 'addtest', component: AddBetaTestComponent },
       { path: 'managetest', component: ManageBetaTestComponent },
+      {path : 'login' , component:LoginComponent},
+      {path: 'register', component:RegisterComponent}
     ],
   },
 
@@ -61,6 +65,7 @@ const routes: Routes = [
     children: [
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
+      { path:'contactus', component:ContactusComponent},
       { path: 'companyregister', component: AdminRegisterComponent },
       { path: 'companylogin', component: AdminLoginComponent },
       { path: 'reset', component: ResetPasswordComponent },
