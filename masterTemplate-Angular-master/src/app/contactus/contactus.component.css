@@ -2,8 +2,9 @@
     padding: 10px;
     margin-top: 70px;
     margin-left: 15px;
-    background-image: url('/assets/p.png');
+    background-image: url('/assets/images/p.png');
     background-repeat: no-repeat;
     background-size: 100%;
     height: 600px;
+   
 }
