@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
-import { CompanyLayoutComponent } from './company/company-layout/company-layout.component';
+import { LayoutComponent as AdminLayout, LayoutComponent } from './admin/layout/layout.component';
+
+import{ CompanyLayoutComponent as CompanyLayoutComponent} from './company/layout/layout.component';
 import { LayoutComponent as UserLayout } from './user/layout/layout.component';
 import { LayoutComponent as AppLayout } from './authentication/layout/layout.component';
 import { SignupComponent } from './authentication/signup/signup.component';
@@ -17,6 +18,7 @@ import { ManageUsersComponent } from './admin/manageusers/manageusers.component'
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -35,10 +37,11 @@ const routes: Routes = [
     path: 'admin',
     component: AdminLayout,
     canActivate: [AdminGuard],
+   
     children: [
       { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'manageuser', component: ManageUsersComponent },
+      { path: 'manageusers', component: ManageUsersComponent },
       { path: 'managecompanys', component: ManageCompanysComponent },
       { path: 'profile', component: ProfileComponent },
     ],
@@ -46,7 +49,11 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserLayout,
-    children: [],
+    children: [
+      {path: 'layout', component:LayoutComponent},
+      {path: 'signin', component:SigninComponent},
+      {path : 'signup', component:SignupComponent}
+    ],
   },
   {
     path: 'company',

@@ -36,7 +36,7 @@ import { LoginComponent } from './company/login/login.component';
 import { AddBetaTestComponent } from './company/add-beta-test/add-beta-test.component';
 import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-test.component';
 import { AddReviewComponent } from './main/add-review/add-review.component';
-import { CompanyLayoutComponent } from './company/company-layout/company-layout.component';
+import { CompanyLayoutComponent } from './company/layout/layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 import { ContactusComponent } from './contactus/contactus.component';
 
@@ -54,10 +54,10 @@ import { ContactusComponent } from './contactus/contactus.component';
     AddBetaTestComponent,
     ManageBetaTestComponent,
     AddReviewComponent,
-    CompanyLayoutComponent,
+    LayoutComponent,
     ProfileComponent,
     ManageCompanysComponent,
-    LayoutComponent,
+    CompanyLayoutComponent,
     ManageUsersComponent,
     ContactusComponent,
   ],
