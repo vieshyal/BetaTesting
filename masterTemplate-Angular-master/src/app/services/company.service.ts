@@ -8,7 +8,15 @@ import { app_config } from 'src/config';
 })
 export class CompanyService {
   url = app_config.api_url + '/company';
-  constructor(private http: HttpClient, private router: Router) {}
+  loggedin = false;
+  currentCompany: any;
+  constructor(private http: HttpClient, private router: Router) {
+    let company = sessionStorage.getItem('company');
+    if (company) {
+      this.loggedin = true;
+      this.currentCompany = JSON.parse(company);
+    }
+  }
 
   addCompany(data: any) {
     return this.http.post(this.url + '/add', data);

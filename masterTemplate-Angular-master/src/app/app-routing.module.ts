@@ -51,8 +51,8 @@ const routes: Routes = [
     component: UserLayout,
     children: [
       {path: 'layout', component:LayoutComponent},
-      {path: 'signin', component:SigninComponent},
-      {path : 'signup', component:SignupComponent}
+      {path: 'login', component:LoginComponent},
+      {path : 'register', component:RegisterComponent}
     ],
   },
   {
