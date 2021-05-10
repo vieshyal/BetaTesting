@@ -40,6 +40,7 @@ import { CompanyLayoutComponent } from './company/layout/layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 import { ContactusComponent } from './contactus/contactus.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { ContactusComponent } from './contactus/contactus.component';
     CompanyLayoutComponent,
     ManageUsersComponent,
     ContactusComponent,
+   
   ],
   imports: [
     BrowserModule,

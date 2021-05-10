@@ -25,6 +25,9 @@ export class CompanyService {
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }
+  getCompanyByName(name: String) {
+    return this.http.get(this.url + '/getbyname' + name);
+  }
 
   getAll() {
     return this.http.get(this.url + '/getall');

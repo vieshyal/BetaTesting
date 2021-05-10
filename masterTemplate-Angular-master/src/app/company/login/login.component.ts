@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
+
+import{CompanyService} from 'src/app/services/company.service';
+
 import Swal from 'sweetalert2';
 import {
   SocialAuthService,
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
   isLoggedin: boolean;
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+    private CompanyService: CompanyService,
     private router: Router,
     private socialAuthService: SocialAuthService
   ) {}
@@ -30,9 +32,9 @@ export class LoginComponent implements OnInit {
     document.getElementsByTagName('nb-layout-column')[0].classList.add('login');
     // document.body.classList.add('login');
 
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      this.isLoggedin = user != null;
+    this.socialAuthService.authState.subscribe((company) => {
+      this.socialUser = company;
+      this.isLoggedin = company != null;
       console.log(this.socialUser);
     });
   }
@@ -45,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   initLoginForm() {
     this.loginform = this.fb.group({
-      email: '',
+      name: '',
       password: '',
     });
   }
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
   submitLoginForm() {
     let formdata = this.loginform.value;
 
-    this.userService.getUserByEmail(formdata.email).subscribe((userdata) => {
+    this.CompanyService.getCompanyByName(formdata.name).subscribe((userdata) => {
       if (userdata) {
         if (userdata['password'] == formdata['password']) {
           Swal.fire({
@@ -61,12 +63,12 @@ export class LoginComponent implements OnInit {
             title: 'Great!',
             text: 'Successfully Loggedin',
           }).then(() => {
-            this.userService.loggedin = true;
-            sessionStorage.setItem('user', JSON.stringify(userdata));
-            this.userService.currentUser = userdata;
+            this.CompanyService.loggedin = true;
+            sessionStorage.setItem('company', JSON.stringify(userdata));
+            this.CompanyService.currentCompany = userdata;
 
-            if (userdata['isadmin']) {
-              this.router.navigate(['/admin']);
+            if (userdata['iscompany']) {
+              this.router.navigate(['/company']);
             } else {
               this.router.navigate(['/user']);
             }
@@ -75,14 +77,14 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Oops!',
-            text: "Email and Password does't match",
+            text: "Name and Password does't match",
           });
         }
       } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops!',
-          text: "Email and Password does't match",
+          text: "Name and Password does't match",
         });
       }
     });
