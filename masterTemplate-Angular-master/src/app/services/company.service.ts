@@ -21,12 +21,15 @@ export class CompanyService {
   addCompany(data: any) {
     return this.http.post(this.url + '/add', data);
   }
+  addBetaTest(data: any) {
+    return this.http.post(this.url + '/add', data);
+  }
 
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }
   getCompanyByName(name: String) {
-    return this.http.get(this.url + '/getbyname' + name);
+    return this.http.get(this.url + '/getbyname/' + name);
   }
 
   getAll() {
