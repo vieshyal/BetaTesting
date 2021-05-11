@@ -5,7 +5,9 @@ const schema = mongoose.Schema({
     password:String,
     desc: String,
     avatar:String,
-    created: Date
+    created: Date,
+    version:Number,
+    date:Date,
   
 
 })

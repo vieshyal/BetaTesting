@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <nb-card style="margin-top:25px;border-radius: 0.5rem; box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);">
                 <nb-card-body style="padding: 2rem;">
-                    <form [formGroup]="registerform" (ngSubmit)="submitRegisterForm()">
+                    <form [formGroup]="BetaTestform" (ngSubmit)="submitAddBetaTestForm()">
                         <h3 style="margin-bottom: -20px;" class="text-center">Add Beta Test</h3>
                         <div class="row mt-4">
                             
@@ -30,13 +30,13 @@
                             <div class="col-md-6">
                                 <mat-form-field class="mt-2 w-100" appearance="outline">
                                     <mat-label>Version</mat-label>
-                                    <input type="password" matInput formControlName="password">
+                                    <input type="number" matInput formControlName="version">
                                 </mat-form-field>
                             </div>
                             <div class="col-md-6">
                                 <mat-form-field class="mt-2 w-100" appearance="outline">
                                     <mat-label>Date</mat-label>
-                                    <input type="date" matInput formControlName="confirm">
+                                    <input type="date" matInput formControlName="date">
                                 </mat-form-field>    
                             </div>
                         </div>
