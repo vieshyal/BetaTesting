@@ -18,6 +18,12 @@ export class CompanyService {
     }
   }
 
+  logout() {
+    sessionStorage.removeItem('company');
+    this.router.navigate(['/company/login']);
+    this.loggedin = false;
+  }
+
   addCompany(data: any) {
     return this.http.post(this.url + '/add', data);
   }

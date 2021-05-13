@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import{CompanyService} from 'src/app/services/company.service';
+import { CompanyService } from 'src/app/services/company.service';
 
 import Swal from 'sweetalert2';
 import {
@@ -55,24 +55,28 @@ export class LoginComponent implements OnInit {
   submitLoginForm() {
     let formdata = this.loginform.value;
 
-    this.CompanyService.getCompanyByName(formdata.name).subscribe((userdata) => {
-      if (userdata) {
-        if (userdata['password'] == formdata['password']) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Great!',
-            text: 'Successfully Loggedin',
-          }).then(() => {
-            this.CompanyService.loggedin = true;
-            sessionStorage.setItem('company', JSON.stringify(userdata));
-            this.CompanyService.currentCompany = userdata;
+    this.CompanyService.getCompanyByName(formdata.name).subscribe(
+      (userdata) => {
+        if (userdata) {
+          if (userdata['password'] == formdata['password']) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Great!',
+              text: 'Successfully Loggedin',
+            }).then(() => {
+              this.CompanyService.loggedin = true;
+              sessionStorage.setItem('company', JSON.stringify(userdata));
+              this.CompanyService.currentCompany = userdata;
 
-            if (userdata['iscompany']) {
-              this.router.navigate(['/company']);
-            } else {
-              this.router.navigate(['/user']);
-            }
-          });
+              this.router.navigate(['/company/addtest']);
+            });
+          } else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops!',
+              text: "Name and Password does't match",
+            });
+          }
         } else {
           Swal.fire({
             icon: 'error',
@@ -80,14 +84,8 @@ export class LoginComponent implements OnInit {
             text: "Name and Password does't match",
           });
         }
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops!',
-          text: "Name and Password does't match",
-        });
       }
-    });
+    );
   }
 
   loginWithGoogle(): void {

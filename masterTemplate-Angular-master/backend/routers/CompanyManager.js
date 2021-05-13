@@ -15,7 +15,7 @@ router.post('/add', (req, res) => {
 
 router.get('/getall', (req, res) => {
 
-    Model.find({ })
+    Model.find({})
         .then(data => {
             console.log('Company fetched');
             res.status(200).json(data);
@@ -31,6 +31,19 @@ router.get('/getbyid/:id', (req, res) => {
     Model.findById(req.params.id)
         .then(data => {
             console.log('company fetched by id');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
+router.get('/getbyname/:name', (req, res) => {
+
+    Model.findOne({ name: req.params.name })
+        .then(data => {
+            console.log('company fetched by name');
             res.status(200).json(data);
         })
         .catch(err => {

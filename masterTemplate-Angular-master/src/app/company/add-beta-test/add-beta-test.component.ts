@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import{ CompanyService} from 'src/app/services/company.service';
+import { CompanyService } from 'src/app/services/company.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -27,15 +27,14 @@ export class AddBetaTestComponent implements OnInit {
 
   initAddBetaTestForm() {
     this.BetaTestform = this.fb.group({
-      name: '',
-      avatar: '',
-      
-      version: '',
-     
-      date:'',
-      
+      title: '',
+      type: '',
+      eligiblity: '',
+      company: this.companyService.currentCompany._id,
+      users: [],
+      startDate: new Date(),
+      endDate: new Date(),
       created: new Date(),
-      isadmin: false,
     });
   }
 
