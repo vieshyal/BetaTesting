@@ -14,7 +14,7 @@
           <!-- visible when not logged in -->
           <nb-actions size="medium"  *ngIf="!userService.loggedin">
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/app/signup']">Signup</nb-action>
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/app/signin']">Login</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/app/signin']">Signin</nb-action>
           </nb-actions>
 
           <!-- visible when logged in -->
