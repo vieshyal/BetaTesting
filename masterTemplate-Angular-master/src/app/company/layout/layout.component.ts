@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import {CompanyService} from 'src/app/services/company.service';
+import { CompanyService } from 'src/app/services/company.service';
 import { app_config } from 'src/config';
 
 @Component({
@@ -11,7 +10,24 @@ import { app_config } from 'src/config';
 export class CompanyLayoutComponent implements OnInit {
   title = app_config.title;
   url = app_config.api_url + '/';
-  constructor(public CompanyService: CompanyService) {}
+  sidebarItems = [
+    {
+      title: 'Profile',
+      icon: 'person-outline',
+      link: 'profile',
+    },
+    {
+      title: 'Manage Users',
+      icon: 'person-outline',
+      link: 'manageuser',
+    },
+    {
+      title: 'View Dashboard',
+      icon: 'person-outline',
+      link: 'dashboard',
+    },
+  ];
+  constructor(public companyService: CompanyService) {}
 
   ngOnInit(): void {}
 }

@@ -1,5 +1,5 @@
 const api_config = {
-    port: 4200,
+    port: 3000,
     conn_url: 'mongodb+srv://Vishal:8090@mystorage.bqwkt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 }

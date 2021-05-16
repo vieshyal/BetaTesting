@@ -18,6 +18,12 @@ export class CompanyService {
     }
   }
 
+  logout() {
+    sessionStorage.removeItem('company');
+    this.router.navigate(['/company/login']);
+    this.loggedin = false;
+  }
+
   addCompany(data: any) {
     return this.http.post(this.url + '/add', data);
   }
@@ -28,8 +34,8 @@ export class CompanyService {
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }
-  getCompanyByEmail(email: String) {
-    return this.http.get(this.url + '/getbyemail/' + email);
+  getCompanyByName(name: String) {
+    return this.http.get(this.url + '/getbyname/' + name);
   }
 
 
