@@ -85,6 +85,7 @@ const routes: Routes = [
       { path: 'companyregister', component: AdminRegisterComponent },
       { path: 'companylogin', component: AdminLoginComponent },
       { path: 'reset', component: ResetPasswordComponent },
+      { path: 'profile', component: ProfileComponent},
     ],
   },
 ];
