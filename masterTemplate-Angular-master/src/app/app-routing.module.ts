@@ -28,6 +28,7 @@ import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.c
 import { ProfileComponent } from './profile/profile.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { from } from 'rxjs';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -39,6 +40,8 @@ const routes: Routes = [
       { path: 'signin', component: SigninComponent },
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'contactus', component: ContactusComponent },
+      { path: 'profile', component: ProfileComponent},
+      { path: 'chat', component: ChatComponent},
     ],
   },
 

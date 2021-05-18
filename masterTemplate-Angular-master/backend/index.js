@@ -13,6 +13,32 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
+// This is how to initialize Socket.io at backend
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io')(server, {
+    cors: {
+        origin: "http://192.168.43.104:4200",
+        methods: ["GET", "POST"]
+    }
+});
+
+io.on('connection', (socket) => {
+    console.log('client connected!!');
+
+    socket.on('sendmsg', (data) => {
+        console.log('a message from client');
+        console.log(data);
+
+        data.reply = false;
+        socket.broadcast.emit('recmsg', data);
+    })
+
+})
+
+
+
+
 app.use(express.json());
 app.use(cors(corsOptions));
 

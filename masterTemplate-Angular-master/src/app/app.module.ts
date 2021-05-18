@@ -10,6 +10,7 @@ import {
   NbSidebarModule,
   NbMenuModule,
   NbIconModule,
+  NbChatModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -46,6 +47,8 @@ import { CompanyLayoutComponent } from './company/layout/layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 import { ContactusComponent } from './contactus/contactus.component';
 
+import { ChatComponent } from './chat/chat.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +69,9 @@ import { ContactusComponent } from './contactus/contactus.component';
     CompanyLayoutComponent,
     ManageUsersComponent,
     ContactusComponent,
+   
+    
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +93,7 @@ import { ContactusComponent } from './contactus/contactus.component';
     SocialLoginModule,
     NbMenuModule.forRoot(),
     NbIconModule,
+    NbChatModule,
   ],
   providers: [
     {
@@ -105,3 +112,4 @@ import { ContactusComponent } from './contactus/contactus.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+export class PageModule{}
