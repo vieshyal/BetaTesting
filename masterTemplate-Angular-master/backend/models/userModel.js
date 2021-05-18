@@ -8,7 +8,7 @@ const schema = mongoose.Schema({
     age: Number,
     created: Date,
     isadmin: Boolean,
-    interest: Array
+    interest: Array,
 })
 
 

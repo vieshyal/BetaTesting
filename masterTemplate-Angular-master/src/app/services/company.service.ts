@@ -38,6 +38,7 @@ export class CompanyService {
     return this.http.get(this.url + '/getbyname/' + name);
   }
 
+
   getAll() {
     return this.http.get(this.url + '/getall');
   }

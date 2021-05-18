@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   isLoggedin: boolean;
   constructor(
     private fb: FormBuilder,
-    private CompanyService: CompanyService,
+    private companyService: CompanyService,
     private router: Router,
     private socialAuthService: SocialAuthService
   ) {}
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   initLoginForm() {
     this.loginform = this.fb.group({
-      name: '',
+      email: '',
       password: '',
     });
   }
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   submitLoginForm() {
     let formdata = this.loginform.value;
 
-    this.CompanyService.getCompanyByName(formdata.name).subscribe(
+    this.companyService.getCompanyByName(formdata.name).subscribe(
       (userdata) => {
         if (userdata) {
           if (userdata['password'] == formdata['password']) {
@@ -64,9 +64,9 @@ export class LoginComponent implements OnInit {
               title: 'Great!',
               text: 'Successfully Loggedin',
             }).then(() => {
-              this.CompanyService.loggedin = true;
+              this.companyService.loggedin = true;
               sessionStorage.setItem('company', JSON.stringify(userdata));
-              this.CompanyService.currentCompany = userdata;
+              this.companyService.currentCompany = userdata;
 
               this.router.navigate(['/company/addtest']);
             });
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Oops!',
-            text: "Name and Password does't match",
+            text: "Email and Password does't match",
           });
         }
       }
