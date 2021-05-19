@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
       confirm: '',
       age: 0,
       created: new Date(),
-      isadmin: true,
+      isadmin: false,
     });
   }
 

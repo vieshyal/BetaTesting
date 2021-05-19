@@ -75,6 +75,7 @@ const routes: Routes = [
       { path: 'managetest', component: ManageBetaTestComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      {path: 'profile', component:ProfileComponent},
     ],
   },
 
@@ -90,6 +91,10 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'profile', component: ProfileComponent},
     ],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
 ];
 

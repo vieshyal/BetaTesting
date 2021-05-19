@@ -3,7 +3,9 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { CompanyService } from 'src/app/services/company.service';
+import{ BetaTestService} from 'src/app/services/betatest.service';
 import Swal from 'sweetalert2';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-add-beta-test',
@@ -17,7 +19,7 @@ export class AddBetaTestComponent implements OnInit {
   imgURL: string | ArrayBuffer;
   constructor(
     private fb: FormBuilder,
-    private companyService: CompanyService,
+    private betatestService: BetaTestService,
     private router: Router
   ) {}
 
@@ -30,7 +32,7 @@ export class AddBetaTestComponent implements OnInit {
       title: '',
       type: '',
       eligiblity: '',
-      company: this.companyService.currentCompany._id,
+      
       users: [],
       startDate: new Date(),
       endDate: new Date(),
@@ -51,7 +53,7 @@ export class AddBetaTestComponent implements OnInit {
     let formData = new FormData();
     this.avatarImage = files[0].name;
     formData.append('image', files[0], files[0].name);
-    this.companyService.uploadAvatar(formData).subscribe((response) => {
+    this.betatestService.uploadAvatar(formData).subscribe((response) => {
       console.log(response);
     });
   }
@@ -75,7 +77,7 @@ export class AddBetaTestComponent implements OnInit {
   submitAddBetaTestForm() {
     let formdata = this.BetaTestform.value;
     formdata.avatar = this.avatarImage;
-    this.companyService.addBetaTest(formdata).subscribe((res) => {
+    this.betatestService.addBetaTest(formdata).subscribe((res) => {
       console.log(res);
       Swal.fire({
         icon: 'success',

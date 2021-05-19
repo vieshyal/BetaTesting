@@ -6,7 +6,7 @@ import { app_config } from 'src/config';
 @Injectable({
   providedIn: 'root',
 })
-export class CompanyService {
+export class BetaTestService {
   url = app_config.api_url + '/company';
   loggedin = false;
   currentCompany: any;
@@ -24,18 +24,19 @@ export class CompanyService {
     this.loggedin = false;
   }
 
-  addCompany(data: any) {
-    return this.http.post(this.url + '/add', data);
-  }
+  
   addBetaTest(data: any) {
     return this.http.post(this.url + '/add', data);
   }
 
-  deleteCompany(id) {
-    return this.http.delete(this.url + '/delete/' + id);
+  deleteBetaTest(data:any) {
+    return this.http.delete(this.url + '/delete/' + data);
   }
-  getCompanyByEmail(email: String) {
-    return this.http.get(this.url + '/getbyemail/' + email);
+  getBetaTestById(id) {
+    return this.http.get(this.url + '/getbyid/' + id);
+  }
+  getBetaTestByType(type:String) {
+    return this.http.get(this.url + '/getbytype/' + type);
   }
 
 

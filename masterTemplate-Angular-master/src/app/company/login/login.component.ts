@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   submitLoginForm() {
     let formdata = this.loginform.value;
 
-    this.companyService.getCompanyByName(formdata.name).subscribe(
+    this.companyService.getCompanyByEmail(formdata.email).subscribe(
       (userdata) => {
         if (userdata) {
           if (userdata['password'] == formdata['password']) {
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
             Swal.fire({
               icon: 'error',
               title: 'Oops!',
-              text: "Name and Password does't match",
+              text: "Email and Password does't match",
             });
           }
         } else {
