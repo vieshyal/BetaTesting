@@ -1,0 +1,17 @@
+<div class="col-md-11 mx-auto">
+    <nb-card>
+        <nb-card-body>
+            <h3>Options Here</h3>
+            <hr class="mb-3">
+        </nb-card-body>
+    </nb-card>
+    <nb-card class="mb-5">
+        <nb-card-body>
+            <div class="test-detail" *ngFor="let beta of betaList">
+                <h3>{{beta.title}}</h3>
+                <p>{{beta.company.name}}</p>
+                <button class="mt-5" nbButton status="primary" [routerLink]="['/user/enroll/', beta._id]" routerLinkActive="router-link-active" >Enroll</button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

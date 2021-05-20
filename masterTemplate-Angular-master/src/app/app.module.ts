@@ -10,6 +10,7 @@ import {
   NbSidebarModule,
   NbMenuModule,
   NbIconModule,
+  NbToastrModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -25,6 +26,7 @@ import { ManageUsersComponent } from './admin/manageusers/manageusers.component'
 
 import { NgsRevealModule } from 'ngx-scrollreveal';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
@@ -45,6 +47,11 @@ import { AddReviewComponent } from './main/add-review/add-review.component';
 import { CompanyLayoutComponent } from './company/layout/layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
+import { EnrollTestComponent } from './user/enroll-test/enroll-test.component';
+import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
+import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +73,10 @@ import { ContactusComponent } from './contactus/contactus.component';
     CompanyLayoutComponent,
     ManageUsersComponent,
     ContactusComponent,
+    SearchBetaTestComponent,
+    EnrollTestComponent,
+    CreateFeedbackFormComponent,
+    ViewFeedbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +98,9 @@ import { ContactusComponent } from './contactus/contactus.component';
     SocialLoginModule,
     NbMenuModule.forRoot(),
     NbIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NbToastrModule.forRoot(),
   ],
   providers: [
     {

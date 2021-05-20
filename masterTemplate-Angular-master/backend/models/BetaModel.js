@@ -6,13 +6,14 @@ const schema = mongoose.Schema({
     type: String,
     eligibility: Object,
     company: { type: mongoose.Types.ObjectId, ref: "Company" },
-    users: Array,
+    users: [{ type: mongoose.Types.ObjectId, ref: "Users" }],
     created: Date,
+    thumb: String,
     startDate: Date,
     endDate: Date,
 })
 
 
-const model = mongoose.model('Beta tests', schema);
+const model = mongoose.model('Beta', schema);
 
 module.exports = model;

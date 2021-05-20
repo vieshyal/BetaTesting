@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
+import { BetaService } from 'src/app/services/beta.service';
 
 import { CompanyService } from 'src/app/services/company.service';
 import Swal from 'sweetalert2';
@@ -15,10 +17,13 @@ export class AddBetaTestComponent implements OnInit {
   avatarImage: any;
   erroMsg: string;
   imgURL: string | ArrayBuffer;
+  types = ['Webapp', 'Software', 'Game'];
   constructor(
     private fb: FormBuilder,
     private companyService: CompanyService,
-    private router: Router
+    private betaService: BetaService,
+    private router: Router,
+    private toastr: NbToastrService
   ) {}
 
   ngOnInit(): void {
@@ -29,9 +34,9 @@ export class AddBetaTestComponent implements OnInit {
     this.BetaTestform = this.fb.group({
       title: '',
       type: '',
-      eligiblity: '',
+      eligibility: '',
       company: this.companyService.currentCompany._id,
-      users: [],
+      users: Array,
       startDate: new Date(),
       endDate: new Date(),
       created: new Date(),
@@ -74,16 +79,10 @@ export class AddBetaTestComponent implements OnInit {
 
   submitAddBetaTestForm() {
     let formdata = this.BetaTestform.value;
-    formdata.avatar = this.avatarImage;
-    this.companyService.addBetaTest(formdata).subscribe((res) => {
+    formdata.thumb = this.avatarImage;
+    this.betaService.addBetaTest(formdata).subscribe((res) => {
       console.log(res);
-      Swal.fire({
-        icon: 'success',
-        title: 'Great!',
-        text: 'Successfully Registered, Now Login to Continue.',
-      }).then(() => {
-        this.router.navigate(['/company/layout']);
-      });
+      this.toastr.success('Your BETA TEST has been published', 'Success');
     });
   }
 }

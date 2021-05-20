@@ -25,9 +25,12 @@ import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-
 import { AdminGuard } from './guards/admin.guard';
 import { ManageUsersComponent } from './admin/manageusers/manageusers.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent as CompanyProfile } from './company/profile/profile.component';
 import { ContactusComponent } from './contactus/contactus.component';
-import { from } from 'rxjs';
+import { ProfileComponent } from './profile/profile.component';
+import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
+import { EnrollTestComponent } from './user/enroll-test/enroll-test.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -39,6 +42,8 @@ const routes: Routes = [
       { path: 'signin', component: SigninComponent },
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'contactus', component: ContactusComponent },
+      { path: 'reset', component: ResetPasswordComponent },
+      { path: 'search', component: SearchBetaTestComponent },
     ],
   },
 
@@ -58,9 +63,11 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserLayout,
+    canActivate: [LoginGuard],
     children: [
       { path: 'layout', component: LayoutComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'enroll/:id', component: EnrollTestComponent },
     ],
   },
   {
@@ -69,23 +76,10 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/company/login', pathMatch: 'full' },
       { path: 'addtest', component: AddBetaTestComponent },
-      { path: 'managetest', component: ManageBetaTestComponent },
+      { path: 'managetests', component: ManageBetaTestComponent },
+      { path: 'profile', component: CompanyProfile },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-    ],
-  },
-
-  {
-    path: 'app',
-    component: AppLayout,
-    children: [
-      { path: 'signup', component: SignupComponent },
-      { path: 'signin', component: SigninComponent },
-      { path: 'contactus', component: ContactusComponent },
-      { path: 'companyregister', component: AdminRegisterComponent },
-      { path: 'companylogin', component: AdminLoginComponent },
-      { path: 'reset', component: ResetPasswordComponent },
-      { path: 'profile', component: ProfileComponent},
     ],
   },
 ];

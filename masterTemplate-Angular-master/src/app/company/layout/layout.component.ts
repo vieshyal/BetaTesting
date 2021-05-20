@@ -17,14 +17,14 @@ export class CompanyLayoutComponent implements OnInit {
       link: 'profile',
     },
     {
-      title: 'Manage Users',
+      title: 'Publish new Test',
       icon: 'person-outline',
-      link: 'manageuser',
+      link: 'addtest',
     },
     {
-      title: 'View Dashboard',
+      title: 'Manage Tests',
       icon: 'person-outline',
-      link: 'dashboard',
+      link: 'managetests',
     },
   ];
   constructor(public companyService: CompanyService) {}
