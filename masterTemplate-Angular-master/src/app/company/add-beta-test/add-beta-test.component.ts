@@ -6,6 +6,7 @@ import { BetaService } from 'src/app/services/beta.service';
 
 import { CompanyService } from 'src/app/services/company.service';
 import Swal from 'sweetalert2';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-add-beta-test',
@@ -56,7 +57,7 @@ export class AddBetaTestComponent implements OnInit {
     let formData = new FormData();
     this.avatarImage = files[0].name;
     formData.append('image', files[0], files[0].name);
-    this.companyService.uploadAvatar(formData).subscribe((response) => {
+    this.betaService.uploadAvatar(formData).subscribe((response) => {
       console.log(response);
     });
   }

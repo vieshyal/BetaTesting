@@ -53,7 +53,6 @@ const routes: Routes = [
     canActivate: [AdminGuard],
 
     children: [
-      { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageusers', component: ManageUsersComponent },
       { path: 'managecompanys', component: ManageCompanysComponent },
@@ -80,6 +79,7 @@ const routes: Routes = [
       { path: 'profile', component: CompanyProfile },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'profile', component: ProfileComponent },
     ],
   },
 ];

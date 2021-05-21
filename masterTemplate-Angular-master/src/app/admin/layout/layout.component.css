@@ -12,3 +12,6 @@ h6 {
   margin: 0 0 1em 0;
   text-transform: uppercase;
 }
+nb-action, nb-user{
+  cursor: pointer;
+}

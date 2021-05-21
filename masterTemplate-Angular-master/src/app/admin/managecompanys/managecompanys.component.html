@@ -8,10 +8,11 @@
             <nb-accordion *ngIf="companysList">
                 <nb-accordion-item *ngFor="let company of companysList">
                   <nb-accordion-item-header>
-                    {{company.name}}
+                    {{company.desc}}
                   </nb-accordion-item-header>
                   <nb-accordion-item-body>
-                    {{company.desc}}
+                    {{company.email}}
+                    {{company.password}}
                     <div class="row mt-5">
                         <div class="col text-center">
                             <button class="col-10" nbButton (click)="updateUser(company._id)">Edit</button>

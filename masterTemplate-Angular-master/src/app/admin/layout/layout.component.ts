@@ -10,7 +10,7 @@ import { app_config } from 'src/config';
 })
 export class LayoutComponent implements OnInit {
   title = app_config.title;
-  url = app_config.api_url + '/';
+  url = app_config.api_url + '/profile';
   sidebarItems = [
     {
       title: 'Profile',
@@ -20,7 +20,12 @@ export class LayoutComponent implements OnInit {
     {
       title: 'Manage Users',
       icon: 'person-outline',
-      link: 'manageuser',
+      link: 'manageusers',
+    },
+    {
+      title: 'Manage Companys',
+      icon: 'person-outline',
+      link: 'managecompanys',
     },
     {
       title: 'View Dashboard',

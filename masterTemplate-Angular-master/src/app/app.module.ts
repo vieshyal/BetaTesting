@@ -11,6 +11,7 @@ import {
   NbMenuModule,
   NbIconModule,
   NbToastrModule,
+  NbChatModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -52,6 +53,8 @@ import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-tes
 import { EnrollTestComponent } from './user/enroll-test/enroll-test.component';
 import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
 import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
+
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +104,7 @@ import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.com
     MatDatepickerModule,
     MatNativeDateModule,
     NbToastrModule.forRoot(),
+    NbChatModule,
   ],
   providers: [
     {
@@ -119,3 +123,4 @@ import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.com
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+export class PageModule {}

@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   initLoginForm() {
     this.loginform = this.fb.group({
-      name: '',
+      email: '',
       password: '',
     });
   }
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     let formdata = this.loginform.value;
 
     this.companyService
-      .getCompanyByName(formdata.name)
+      .getCompanyByEmail(formdata.email)
       .subscribe((userdata) => {
         if (userdata) {
           if (userdata['password'] == formdata['password']) {
@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
             Swal.fire({
               icon: 'error',
               title: 'Oops!',
-              text: "Name and Password does't match",
+              text: "Email and Password does't match",
             });
           }
         } else {

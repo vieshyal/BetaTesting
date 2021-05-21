@@ -34,8 +34,8 @@ export class CompanyService {
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }
-  getCompanyByName(name: String) {
-    return this.http.get(this.url + '/getbyname/' + name);
+  getCompanyByEmail(email: String) {
+    return this.http.get(this.url + '/getbyemail/' + email);
   }
 
 

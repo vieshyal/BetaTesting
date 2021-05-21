@@ -16,8 +16,8 @@
           </nb-actions>
 
           <!-- visible when logged in -->
-          <nb-actions size="medium" *ngIf="userService.loggedin">
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="[userService.currentUser.isadmin?'/admin':'/user']" >{{userService.currentUser.isadmin?'Admin Dashboard': 'User Dashboard'}}</nb-action>
+          <nb-actions size="medium" *ngIf="userService.loggedin" style="margin-left: auto">
+            
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" (click)="userService.logout()">Logout</nb-action>
           </nb-actions>
           <nb-user *ngIf="userService.loggedin"
@@ -28,6 +28,11 @@
              [routerLink]="[userService.currentUser.isadmin?'/admin':'/user']">
         </nb-user>
     </nb-layout-header>
+    <nb-sidebar *ngIf="userService.loggedin">
+      <nb-menu [items]="sidebarItems">
+
+      </nb-menu>
+  </nb-sidebar>
     <nb-layout-column>
         <router-outlet></router-outlet>
     </nb-layout-column>

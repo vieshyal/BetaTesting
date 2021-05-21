@@ -24,7 +24,7 @@ export class ManageCompanysComponent implements OnInit {
   }
 
   fetchCompanys() {
-    this.userService.getAll().subscribe((res) => {
+    this.companyService.getAll().subscribe((res) => {
       this.companysList = res;
       this.loadingCompanys = false;
     });
@@ -41,7 +41,7 @@ export class ManageCompanysComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.userService.deleteUser(id).subscribe((res) => {
+        this.companyService.deleteCompany(id).subscribe((res) => {
           console.log(res);
           Swal.fire({
             title: 'Deleted!',
