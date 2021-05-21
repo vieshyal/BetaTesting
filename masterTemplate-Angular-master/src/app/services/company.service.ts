@@ -38,7 +38,6 @@ export class CompanyService {
     return this.http.get(this.url + '/getbyemail/' + email);
   }
 
-
   getAll() {
     return this.http.get(this.url + '/getall');
   }
