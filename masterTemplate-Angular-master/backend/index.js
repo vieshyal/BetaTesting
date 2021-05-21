@@ -43,8 +43,8 @@ app.use(express.json());
 app.use(cors(corsOptions));
 
 app.use('/user', userRouter);
-app.use('/Beta tests', BetaRouter);
-app.use('/Company', CompanyRouter);
+app.use('/beta', BetaRouter);
+app.use('/company', CompanyRouter);
 app.use('/util', utilRouter);
 
 app.use(express.static('./uploads'))

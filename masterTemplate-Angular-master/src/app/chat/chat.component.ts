@@ -26,44 +26,44 @@ export class ChatComponent implements OnInit {
     // this.initMessages();
   }
 
-  initMessages() {
-    let message1 = {
-      text: 'Hey',
-      user: this.userService.currentUser,
-      reply: true,
-      created: new Date(),
-    };
+  // initMessages() {
+  //   let message1 = {
+  //     text: 'Hey',
+  //     user: this.userService.currentUser,
+  //     reply: true,
+  //     created: new Date(),
+  //   };
 
-    let message2 = {
-      text: 'Helo',
-      user: this.userService.currentUser,
-      reply: true,
-      created: new Date(),
-    };
+  //   let message2 = {
+  //     text: 'Helo',
+  //     user: this.userService.currentUser,
+  //     reply: true,
+  //     created: new Date(),
+  //   };
 
-    let message3 = {
-      text: 'I am here to give my feedback',
-      user: this.userService.currentUser,
-      reply: true,
-      created: new Date(),
-    };
+  //   let message3 = {
+  //     text: 'I am here to give my feedback',
+  //     user: this.userService.currentUser,
+  //     reply: true,
+  //     created: new Date(),
+  //   };
 
-    this.messageList.push(message1);
-    this.messageList.push(message2);
-    this.messageList.push(message3);
+  //   this.messageList.push(message1);
+  //   this.messageList.push(message2);
+  //   this.messageList.push(message3);
 
-    console.log(this.messageList);
-  }
+  //   console.log(this.messageList);
+  // }
 
-  sendMessage(e) {
-    let message = {
-      text: e.message,
-      user: this.userService.currentUser,
-      reply: true,
-      created: new Date(),
-    };
+  // sendMessage(e) {
+  //   let message = {
+  //     text: e.message,
+  //     user: this.userService.currentUser,
+  //     reply: true,
+  //     created: new Date(),
+  //   };
 
-    this.messageList.push(message);
-    this.chatService.send(message);
-  }
+  //   this.messageList.push(message);
+  //   this.chatService.send(message);
+  // }
 }

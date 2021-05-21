@@ -10,6 +10,7 @@ import {
   NbSidebarModule,
   NbMenuModule,
   NbIconModule,
+  NbToastrModule,
   NbChatModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
@@ -26,6 +27,7 @@ import { ManageUsersComponent } from './admin/manageusers/manageusers.component'
 
 import { NgsRevealModule } from 'ngx-scrollreveal';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
@@ -46,6 +48,11 @@ import { AddReviewComponent } from './main/add-review/add-review.component';
 import { CompanyLayoutComponent } from './company/layout/layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
+import { EnrollTestComponent } from './user/enroll-test/enroll-test.component';
+import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
+import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
 
 import { ChatComponent } from './chat/chat.component';
 
@@ -69,9 +76,10 @@ import { ChatComponent } from './chat/chat.component';
     CompanyLayoutComponent,
     ManageUsersComponent,
     ContactusComponent,
-   
-    
-    ChatComponent,
+    SearchBetaTestComponent,
+    EnrollTestComponent,
+    CreateFeedbackFormComponent,
+    ViewFeedbackComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +101,9 @@ import { ChatComponent } from './chat/chat.component';
     SocialLoginModule,
     NbMenuModule.forRoot(),
     NbIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NbToastrModule.forRoot(),
     NbChatModule,
   ],
   providers: [
@@ -112,4 +123,4 @@ import { ChatComponent } from './chat/chat.component';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-export class PageModule{}
+export class PageModule {}

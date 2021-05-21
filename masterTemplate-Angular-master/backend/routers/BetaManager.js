@@ -28,7 +28,7 @@ router.get('/getbycompany/:name', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
 
-    Model.findById(req.params.id)
+    Model.findById(req.params.id).populate('company')
         .then(data => {
             console.log('Beta model fetched by id');
             res.status(200).json(data);
@@ -39,12 +39,38 @@ router.get('/getbyid/:id', (req, res) => {
         })
 })
 
+router.delete('/delete/:id', (req, res) => {
+
+    Model.findByIdAndDelete(req.params.id)
+        .then(data => {
+            console.log('Beta model deleted by id');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 router.get('/getall', (req, res) => {
 
-    Model.find({})
+    Model.find({}).populate('company')
         .then(data => {
             console.log('Beta model fetched ');
             res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
+router.put('/enroll/:betaid', (req, res) => {
+
+    Model.findByIdAndUpdate(req.params.betaid, { $push: req.body })
+        .then(data => {
+            console.log('Beta model updated');
+            res.status(200).json({ message: 'success' });
         })
         .catch(err => {
             console.error(err);

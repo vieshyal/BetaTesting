@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
+import { BetaService } from 'src/app/services/beta.service';
 
 import { CompanyService } from 'src/app/services/company.service';
-import{ BetaTestService} from 'src/app/services/betatest.service';
 import Swal from 'sweetalert2';
 import { from } from 'rxjs';
 
@@ -17,10 +18,13 @@ export class AddBetaTestComponent implements OnInit {
   avatarImage: any;
   erroMsg: string;
   imgURL: string | ArrayBuffer;
+  types = ['Webapp', 'Software', 'Game'];
   constructor(
     private fb: FormBuilder,
-    private betatestService: BetaTestService,
-    private router: Router
+    private companyService: CompanyService,
+    private betaService: BetaService,
+    private router: Router,
+    private toastr: NbToastrService
   ) {}
 
   ngOnInit(): void {
@@ -31,9 +35,9 @@ export class AddBetaTestComponent implements OnInit {
     this.BetaTestform = this.fb.group({
       title: '',
       type: '',
-      eligiblity: '',
-      
-      users: [],
+      eligibility: '',
+      company: this.companyService.currentCompany._id,
+      users: Array,
       startDate: new Date(),
       endDate: new Date(),
       created: new Date(),
@@ -53,7 +57,7 @@ export class AddBetaTestComponent implements OnInit {
     let formData = new FormData();
     this.avatarImage = files[0].name;
     formData.append('image', files[0], files[0].name);
-    this.betatestService.uploadAvatar(formData).subscribe((response) => {
+    this.betaService.uploadAvatar(formData).subscribe((response) => {
       console.log(response);
     });
   }
@@ -76,16 +80,10 @@ export class AddBetaTestComponent implements OnInit {
 
   submitAddBetaTestForm() {
     let formdata = this.BetaTestform.value;
-    formdata.avatar = this.avatarImage;
-    this.betatestService.addBetaTest(formdata).subscribe((res) => {
+    formdata.thumb = this.avatarImage;
+    this.betaService.addBetaTest(formdata).subscribe((res) => {
       console.log(res);
-      Swal.fire({
-        icon: 'success',
-        title: 'Great!',
-        text: 'Successfully Registered, Now Login to Continue.',
-      }).then(() => {
-        this.router.navigate(['/company/layout']);
-      });
+      this.toastr.success('Your BETA TEST has been published', 'Success');
     });
   }
 }
