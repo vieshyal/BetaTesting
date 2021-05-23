@@ -42,6 +42,9 @@ export class UserService {
   uploadAvatar(file: any) {
     return this.http.post(app_config.api_url + '/util/addimg', file);
   }
+  addContact(id, user_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { contacts: user_id });
+  }
 
   logout() {
     sessionStorage.removeItem('user');

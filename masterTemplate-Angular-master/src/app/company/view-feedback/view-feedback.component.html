@@ -1,1 +1,71 @@
-<p>view-feedback works!</p>
+<div class="col-md-11 mx-auto mt-5">
+
+    <nb-card accent="primary">
+        <nb-card-header>
+            <p class="h4">View Feedbacks</p>
+        </nb-card-header>
+        <nb-card-body>
+            <nb-accordion *ngIf="feedbackList">
+                <nb-accordion-item *ngFor="let feedback of feedbackList">
+                  <nb-accordion-item-header>
+                    {{feedback.name}}
+                  </nb-accordion-item-header>
+                  <nb-accordion-item-body>
+                      <div class="row">
+                          
+                          <div class="col-md-8">
+                            {{feedback.email}}
+                          </div>
+                      </div>
+                      <div class="row">
+                          
+                        <div class="col-md-8">
+                          {{feedback.question1}}
+                        </div>
+                    </div>
+                    <div class="row">
+                          
+                        <div class="col-md-8">
+                          {{feedback.question2}}
+                        </div>
+                    </div>
+                    <div class="row">
+                          
+                        <div class="col-md-8">
+                          {{feedback.question3}}
+                        </div>
+                    </div>
+                    <div class="row">
+                          
+                        <div class="col-md-8">
+                          {{feedback.question4}}
+                        </div>
+                    </div>
+                    <div class="row">
+                          
+                        <div class="col-md-8">
+                          {{feedback.question5}}
+                        </div>
+                    </div>
+                    <div class="row">
+                          
+                        <div class="col-md-8">
+                          {{feedback.question6}}
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        
+                        
+                        <div class="col text-center">
+                            <button class="col-10" nbButton hero (click)="deletefee(feedback._id)" status  ="danger">Delete</button>
+                        </div>
+                    </div>
+
+
+                    
+                  </nb-accordion-item-body>
+                </nb-accordion-item>
+            </nb-accordion>
+        </nb-card-body>
+    </nb-card>
+</div>

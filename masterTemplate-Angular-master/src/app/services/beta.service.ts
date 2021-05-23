@@ -11,7 +11,7 @@ export class BetaService {
   constructor(private http: HttpClient, private router: Router) {}
 
   addBetaTest(data: any) {
-    return this.http.post(this.url + '/add', data);
+    return this.http.post(this.url + '/add/', data);
   }
 
   getById(id) {
@@ -23,7 +23,7 @@ export class BetaService {
   }
 
   getAll() {
-    return this.http.get(this.url + '/getall');
+    return this.http.get(this.url + '/getall/');
   }
 
   enrollUser(id, data) {
@@ -35,6 +35,6 @@ export class BetaService {
   }
 
   uploadAvatar(file: any) {
-    return this.http.post(app_config.api_url + '/util/addimg', file);
+    return this.http.post(app_config.api_url + '/util/addimg/', file);
   }
 }

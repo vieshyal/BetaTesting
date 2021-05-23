@@ -16,6 +16,11 @@ export class LayoutComponent implements OnInit {
       icon: 'person-outline',
       link: 'profile',
     },
+    {
+      title: 'Enroll Test',
+      icon: 'person-outline',
+      link: 'enrolltest',
+    },
     
   ];
 

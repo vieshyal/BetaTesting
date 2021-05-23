@@ -11,59 +11,77 @@ import { UserService } from '../services/user.service';
 export class ChatComponent implements OnInit {
   messageList = [];
   url = app_config.api_url + '/';
+  selContact;
   constructor(
     private chatService: ChatService,
-    private userService: UserService
+    public userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.chatService.connectServer();
-    this.chatService.receive().subscribe((data) => {
+    this.chatService.register(this.userService.currentUser._id);
+    this.chatService.receive().subscribe((data: any) => {
       console.log(data);
       this.messageList.push(data);
+      if (!this.alreadyInContact(data.user._id)) {
+        this.userService
+          .addContact(this.userService.currentUser._id, data.user._id)
+          .subscribe((res) => {
+            console.log('contact added');
+          });
+      }
     });
 
+    this.selContact = this.userService.currentUser.contacts[0];
     // this.initMessages();
   }
 
-  // initMessages() {
-  //   let message1 = {
-  //     text: 'Hey',
-  //     user: this.userService.currentUser,
-  //     reply: true,
-  //     created: new Date(),
-  //   };
+  initMessages() {
+    let message1 = {
+      text: 'Hey',
+      user: this.userService.currentUser,
+      reply: true,
+      created: new Date(),
+    };
 
-  //   let message2 = {
-  //     text: 'Helo',
-  //     user: this.userService.currentUser,
-  //     reply: true,
-  //     created: new Date(),
-  //   };
+    let message2 = {
+      text: 'Helo',
+      user: this.userService.currentUser,
+      reply: true,
+      created: new Date(),
+    };
 
-  //   let message3 = {
-  //     text: 'I am here to give my feedback',
-  //     user: this.userService.currentUser,
-  //     reply: true,
-  //     created: new Date(),
-  //   };
+    let message3 = {
+      text: 'I want to buy your book',
+      user: this.userService.currentUser,
+      reply: true,
+      created: new Date(),
+    };
 
-  //   this.messageList.push(message1);
-  //   this.messageList.push(message2);
-  //   this.messageList.push(message3);
+    this.messageList.push(message1);
+    this.messageList.push(message2);
+    this.messageList.push(message3);
 
-  //   console.log(this.messageList);
-  // }
+    console.log(this.messageList);
+  }
 
-  // sendMessage(e) {
-  //   let message = {
-  //     text: e.message,
-  //     user: this.userService.currentUser,
-  //     reply: true,
-  //     created: new Date(),
-  //   };
+  sendMessage(e) {
+    let message = {
+      text: e.message,
+      user: this.userService.currentUser,
+      reply: true,
+      created: new Date(),
+      contact: this.selContact._id,
+    };
 
-  //   this.messageList.push(message);
-  //   this.chatService.send(message);
-  // }
+    this.messageList.push(message);
+    this.chatService.send(message);
+  }
+
+  alreadyInContact(id) {
+    for (let contact of this.userService.currentUser.contacts) {
+      if (contact._id == id) return true;
+    }
+    return false;
+  }
 }

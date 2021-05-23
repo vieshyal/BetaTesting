@@ -12,6 +12,7 @@ import {
   NbIconModule,
   NbToastrModule,
   NbChatModule,
+
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -50,11 +51,12 @@ import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.c
 import { ContactusComponent } from './contactus/contactus.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
-import { EnrollTestComponent } from './user/enroll-test/enroll-test.component';
+import { EnrollTestComponent } from 'src/app/user/enrolltest/enrolltest.component';
 import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
 import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
 
 import { ChatComponent } from './chat/chat.component';
+
 
 @NgModule({
   declarations: [
@@ -80,6 +82,7 @@ import { ChatComponent } from './chat/chat.component';
     EnrollTestComponent,
     CreateFeedbackFormComponent,
     ViewFeedbackComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -105,6 +108,7 @@ import { ChatComponent } from './chat/chat.component';
     MatNativeDateModule,
     NbToastrModule.forRoot(),
     NbChatModule,
+  
   ],
   providers: [
     {

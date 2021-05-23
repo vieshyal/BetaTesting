@@ -18,13 +18,23 @@ export class CompanyLayoutComponent implements OnInit {
     },
     {
       title: 'Publish new Test',
-      icon: 'person-outline',
+      icon: 'file-text',
       link: 'addtest',
     },
     {
       title: 'Manage Tests',
-      icon: 'person-outline',
+      icon: 'eye',
       link: 'managetests',
+    },
+    {
+      title: 'Feedback Form',
+      icon: 'file-text',
+      link: 'feedback form',
+    },
+    {
+      title: 'View Feedback',
+      icon: 'eye',
+      link: 'view feedback',
     },
   ];
   constructor(public companyService: CompanyService) {}
