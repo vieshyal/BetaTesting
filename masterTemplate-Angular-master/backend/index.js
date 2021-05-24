@@ -5,7 +5,7 @@ const port = api_config.port;
 const userRouter = require('./routers/userManager');
 const BetaRouter = require('./routers/BetaManager');
 const CompanyRouter = require('./routers/CompanyManager');
-const FeedbackRouter= require('./routers/FeedbackManager');
+const FeedbackRouter = require('./routers/FeedbackManager');
 
 const utilRouter = require('./routers/util');
 const cors = require('cors');
@@ -47,7 +47,7 @@ app.use(cors(corsOptions));
 app.use('/user', userRouter);
 app.use('/beta', BetaRouter);
 app.use('/company', CompanyRouter);
-app.use('/feedback',FeedbackRouter);
+app.use('/feedback', FeedbackRouter);
 
 app.use('/util', utilRouter);
 

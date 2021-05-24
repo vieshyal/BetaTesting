@@ -18,6 +18,10 @@ export class BetaService {
     return this.http.get(this.url + '/getbyid/' + id);
   }
 
+  getByCompany(id) {
+    return this.http.get(this.url + '/getbycompany/' + id);
+  }
+
   deleteTest(id) {
     return this.http.delete(this.url + '/delete/' + id);
   }
