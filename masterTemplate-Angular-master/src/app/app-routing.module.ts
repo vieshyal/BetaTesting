@@ -29,7 +29,7 @@ import { ProfileComponent as CompanyProfile } from './company/profile/profile.co
 import { ContactusComponent } from './contactus/contactus.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
-import {EnrollTestComponent} from 'src/app/user/enrolltest/enrolltest.component';
+import { EnrollTestComponent } from 'src/app/user/enrolltest/enrolltest.component';
 import { LoginGuard } from './guards/login.guard';
 import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
 import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
@@ -69,8 +69,7 @@ const routes: Routes = [
     children: [
       { path: 'layout', component: LayoutComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'enrolltest', component:EnrollTestComponent},
-      
+      { path: 'enroll/:id', component: EnrollTestComponent },
     ],
   },
   {
@@ -84,8 +83,8 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'feedback form', component: CreateFeedbackFormComponent}, 
-    { path:'view feedback' , component: ViewFeedbackComponent},
+      { path: 'feedback form', component: CreateFeedbackFormComponent },
+      { path: 'view feedback', component: ViewFeedbackComponent },
     ],
   },
 ];

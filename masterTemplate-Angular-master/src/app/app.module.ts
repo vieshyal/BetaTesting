@@ -56,6 +56,7 @@ import { CreateFeedbackFormComponent } from './company/create-feedback-form/crea
 import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
 
 import { ChatComponent } from './chat/chat.component';
+import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { ChatComponent } from './chat/chat.component';
     EnrollTestComponent,
     CreateFeedbackFormComponent,
     ViewFeedbackComponent,
+    ManageEnrolledComponent,
 
   ],
   imports: [

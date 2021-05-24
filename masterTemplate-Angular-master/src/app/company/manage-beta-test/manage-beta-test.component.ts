@@ -28,11 +28,13 @@ export class ManageBetaTestComponent implements OnInit {
   }
 
   fetchTests() {
-    this.betaService.getAll().subscribe((res) => {
-      console.log(res);
-      this.betaList = res;
-      this.loadingBeta = false;
-    });
+    this.betaService
+      .getByCompany(this.companyService.currentCompany._id)
+      .subscribe((res) => {
+        console.log(res);
+        this.betaList = res;
+        this.loadingBeta = false;
+      });
   }
 
   deleteBeta(id) {

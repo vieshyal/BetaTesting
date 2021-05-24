@@ -13,9 +13,9 @@ router.post('/add', (req, res) => {
         })
 })
 
-router.get('/getbycompany/:name', (req, res) => {
+router.get('/getbycompany/:id', (req, res) => {
 
-    Model.findOne({ email: req.params.email })
+    Model.find({ company: req.params.id }).populate('company').populate('users')
         .then(data => {
             console.log('Beta model fetched by company');
             res.status(200).json(data);
