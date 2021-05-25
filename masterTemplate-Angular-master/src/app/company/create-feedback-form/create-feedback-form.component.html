@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="container">
     <h3>Feedback Form</h3>
@@ -36,4 +36,49 @@
 
     <input type="submit" value="Submit">
   </form>
+</div> -->
+
+
+<div class="col-md-12">
+  <nb-card>
+    <nb-card-body>
+      <h1>Create Feedback Form</h1>
+      <hr>
+
+      <nb-card class="mt-4" *ngFor="let question of feedbackform.questions;let i = index">
+        <nb-card-body>
+          <div class="row">
+            <div class="col-md-9">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Question {{i+1}}:</mat-label>
+                <input type="text" [(ngModel)]="question.name" matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-md-3">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Answer Type</mat-label>
+                <mat-select [(ngModel)]="question.answertype" (selectionChange)="setOptions($event, i)">
+                  <mat-option *ngFor="let type of questionTypes" [value]="type">
+                    {{type}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="option" *ngIf="question.answertype != questionTypes[0]">
+            <mat-form-field appearance="fill" class="d-block w-50" *ngFor="let option of question.options;let oi = index">
+              <mat-label>Option {{oi+1}}:</mat-label>
+              <input type="text" [(ngModel)]="option.text" matInput>
+            </mat-form-field>
+            <button nbButton class="mt-2" (click)="addOption(i)">Add New</button>
+          </div>
+          
+        </nb-card-body>
+      </nb-card>
+      <button nbButton (click)="addQuestion()">Add Question</button>
+
+    </nb-card-body>
+  </nb-card>
+
+  <button nbButton (click)="submitForm()">Publish</button>
 </div>

@@ -34,6 +34,7 @@ import { LoginGuard } from './guards/login.guard';
 import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
 import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
 import { ChatComponent } from './chat/chat.component';
+import { EnrolledComponent } from './user/enrolled/enrolled.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -70,6 +71,7 @@ const routes: Routes = [
       { path: 'layout', component: LayoutComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'enroll/:id', component: EnrollTestComponent },
+      { path: 'enrolled', component: EnrolledComponent },
     ],
   },
   {

@@ -39,6 +39,21 @@ router.get('/getbyid/:id', (req, res) => {
         })
 })
 
+router.get('/getbyuser/:id', (req, res) => {
+
+    Model.find({
+        users: req.params.id
+    }).populate('company')
+        .then(data => {
+            console.log('Beta model fetched by id');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 router.delete('/delete/:id', (req, res) => {
 
     Model.findByIdAndDelete(req.params.id)
