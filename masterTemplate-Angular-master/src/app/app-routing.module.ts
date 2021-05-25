@@ -34,6 +34,8 @@ import { LoginGuard } from './guards/login.guard';
 import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
 import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
 import { ChatComponent } from './chat/chat.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -47,6 +49,8 @@ const routes: Routes = [
       { path: 'contactus', component: ContactusComponent },
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'search', component: SearchBetaTestComponent },
+      {path : 'aboutus', component: AboutusComponent},
+      {path :'home', component:HomeComponent},
     ],
   },
 
