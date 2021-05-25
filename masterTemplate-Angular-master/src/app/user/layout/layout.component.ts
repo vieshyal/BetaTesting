@@ -19,9 +19,8 @@ export class LayoutComponent implements OnInit {
     {
       title: 'Enroll Test',
       icon: 'person-outline',
-      link: 'enrolltest',
+      link: 'enrolled',
     },
-    
   ];
 
   constructor(public userService: UserService) {}

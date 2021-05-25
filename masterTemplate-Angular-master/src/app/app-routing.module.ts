@@ -36,6 +36,7 @@ import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.com
 import { ChatComponent } from './chat/chat.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
+import { EnrolledComponent } from './user/enrolled/enrolled.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -74,6 +75,7 @@ const routes: Routes = [
       { path: 'layout', component: LayoutComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'enroll/:id', component: EnrollTestComponent },
+      { path: 'enrolled', component: EnrolledComponent },
     ],
   },
   {

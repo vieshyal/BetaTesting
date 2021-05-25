@@ -59,6 +59,7 @@ import { ChatComponent } from './chat/chat.component';
 import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
+import { EnrolledComponent } from './user/enrolled/enrolled.component';
 
 
 @NgModule({
@@ -88,6 +89,7 @@ import { HomeComponent } from './home/home.component';
     ManageEnrolledComponent,
     AboutusComponent,
     HomeComponent,
+    EnrolledComponent,
 
   ],
   imports: [

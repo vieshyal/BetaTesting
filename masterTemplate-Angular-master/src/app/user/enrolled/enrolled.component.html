@@ -1,0 +1,27 @@
+<div class="col-md-11 mx-auto mt-5">
+
+    <nb-card accent="primary">
+        <nb-card-header>
+            <p class="h4">Manage your BETA Tests</p>
+        </nb-card-header>
+        <nb-card-body>
+            <nb-accordion *ngIf="betaList">
+                <nb-accordion-item *ngFor="let beta of betaList">
+                  <nb-accordion-item-header>
+                    {{beta.title}}
+                  </nb-accordion-item-header>
+                  <nb-accordion-item-body>
+                      <div class="row">
+                          <div class="col-md-4">
+                              <img [src]="url+beta.thumb" class="img-fluid" alt="">
+                          </div>
+                          <div class="col-md-8">
+                            {{beta.startDate | date}}
+                          </div>
+                      </div>
+                  </nb-accordion-item-body>
+                </nb-accordion-item>
+            </nb-accordion>
+        </nb-card-body>
+    </nb-card>
+</div>
