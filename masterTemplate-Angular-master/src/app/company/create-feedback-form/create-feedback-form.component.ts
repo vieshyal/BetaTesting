@@ -26,6 +26,7 @@ export class CreateFeedbackFormComponent implements OnInit {
   loadingform = true;
   erroMsg: string;
   questionTypes = ['text', 'radio', 'checkbox'];
+  schForm;
 
   constructor(
     private fb: FormBuilder,
@@ -36,33 +37,27 @@ export class CreateFeedbackFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.initFeedbackForm();
+    this.scheduleForm();
   }
-  // initFeedbackForm() {
-  //   this.feedbackform = this.fb.group({
-  //     name: '',
-  //     email: '',
-  //     question1: '',
-  //     question2: '',
-  //     question3: '',
-  //     question4: '',
-  //     question5: '',
-  //     question6: '',
-  //     company: this.companyService.currentCompany._id,
-  //     users: Array,
-  //     startDate: new Date(),
-  //     endDate: new Date(),
-  //     created: new Date(),
-  //   });
-  // }
-  // submitFeedbackForm() {
-  //   let formdata = this.feedbackform.value;
 
-  //   this.feedbackService.addFeedback(formdata).subscribe((res) => {
-  //     console.log(res);
-  //     this.toastr.success('Your Feedback has been Recorded', 'Success');
-  //   });
-  // }
+  scheduleForm() {
+    this.schForm = this.fb.group({
+      company: this.companyService.currentCompany._id,
+      beta: '',
+      users: Array,
+      startDate: '',
+      endDate: '',
+      created: new Date(),
+    });
+  }
+  submitFeedbackForm() {
+    let formdata = this.schForm.value;
+
+    this.feedbackService.addFeedback(formdata).subscribe((res) => {
+      console.log(res);
+      this.toastr.success('Your Feedback has been Recorded', 'Success');
+    });
+  }
 
   addQuestion() {
     this.feedbackform.questions.push({
