@@ -37,6 +37,9 @@ import { ChatComponent } from './chat/chat.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
+import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
+import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -51,10 +54,13 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'search', component: SearchBetaTestComponent },
       {path : 'aboutus', component: AboutusComponent},
-      {path :'home', component:HomeComponent},
+      {path :'home', component: HomeComponent },
+      
     ],
   },
 
+
+  
   {
     path: 'admin',
     component: AdminLayout,
@@ -64,7 +70,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageusers', component: ManageUsersComponent },
       { path: 'managecompanys', component: ManageCompanysComponent },
-      { path: 'profile', component: ProfileComponent },
+      
     ],
   },
   {
@@ -73,9 +79,12 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     children: [
       { path: 'layout', component: LayoutComponent },
-      { path: 'profile', component: ProfileComponent },
+    
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },
+      {path : 'manage', component:ManageEnrolledComponent},
+      {path:'uprofile', component:UserprofileComponent},
+      
     ],
   },
   {
@@ -88,7 +97,7 @@ const routes: Routes = [
       { path: 'profile', component: CompanyProfile },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'profile', component: ProfileComponent },
+      
       { path: 'feedback form', component: CreateFeedbackFormComponent },
       { path: 'view feedback', component: ViewFeedbackComponent },
     ],

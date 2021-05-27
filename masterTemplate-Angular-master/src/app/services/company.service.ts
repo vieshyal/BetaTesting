@@ -49,4 +49,12 @@ export class CompanyService {
   uploadAvatar(file: any) {
     return this.http.post(app_config.api_url + '/util/addimg', file);
   }
+  refreshCompany() {
+    this.http
+      .get(this.url + '/getbyid/' + this.currentCompany._id)
+      .subscribe((userdata) => {
+        this.currentCompany = userdata;
+        sessionStorage.setItem('user', JSON.stringify(userdata));
+      });
+  }
 }

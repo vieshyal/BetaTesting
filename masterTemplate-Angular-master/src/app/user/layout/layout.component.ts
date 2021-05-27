@@ -14,13 +14,21 @@ export class LayoutComponent implements OnInit {
     {
       title: 'Profile',
       icon: 'person-outline',
-      link: 'profile',
+      link: 'uprofile',
     },
+    
     {
-      title: 'Enroll Test',
+      title: 'Enrolled',
       icon: 'person-outline',
       link: 'enrolled',
     },
+    {
+      title: 'Manage Enrolled',
+      icon: 'person-outline',
+      link: 'manage',
+    },
+    
+   
   ];
 
   constructor(public userService: UserService) {}
