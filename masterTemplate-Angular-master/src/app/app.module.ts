@@ -12,8 +12,6 @@ import {
   NbIconModule,
   NbToastrModule,
   NbChatModule,
-  NbCardModule,
-
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { LayoutComponent as AdminLayout } from './admin/layout/layout.component';
@@ -27,7 +25,6 @@ import { LayoutComponent } from './authentication/layout/layout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ManageUsersComponent } from './admin/manageusers/manageusers.component';
 
-import { NgsRevealModule } from 'ngx-scrollreveal';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
@@ -64,7 +61,6 @@ import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
 import { UserprofileComponent } from './user/userprofile/userprofile.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,9 +89,6 @@ import { UserprofileComponent } from './user/userprofile/userprofile.component';
     AboutusComponent,
     HomeComponent,
     EnrolledComponent,
-    AdminprofileComponent,
-    UserprofileComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -106,7 +99,6 @@ import { UserprofileComponent } from './user/userprofile/userprofile.component';
     NbEvaIconsModule,
     NbSidebarModule.forRoot(),
     NebularModule,
-    NgsRevealModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -121,8 +113,6 @@ import { UserprofileComponent } from './user/userprofile/userprofile.component';
     MatNativeDateModule,
     NbToastrModule.forRoot(),
     NbChatModule,
-    NbCardModule,
-  
   ],
   providers: [
     {
