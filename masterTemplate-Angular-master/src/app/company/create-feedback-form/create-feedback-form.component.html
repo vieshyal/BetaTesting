@@ -1,52 +1,24 @@
-<!-- 
-
-<div class="container">
-    <h3>Feedback Form</h3>
-    <form [formGroup]="feedbackform" (ngSubmit)="submitFeedbackForm()">
-    <label for="name">First Name</label>
-    <input type="text" id="name" placeholder="Your name..">
-
-    <label for="email">Email</label>
-    <input type="text" id="email"  placeholder="Your email..">
-
-    <label for="country">Country</label>
-    <select id="country" name="country">
-      <option value="australia">Australia</option>
-      <option value="canada">India</option>
-      <option value="usa">USA</option>
-    </select>
-
-    <label for="question1">Thanks, what did you like most about it?</label>
-    <input type="text" id="question1"  placeholder="Say something...">
-    <label for="question2">And what were your least favorite aspects of the software?</label>
-    <input type="text" id="question2" placeholder="Say something...">
-    <label for="question3">Seen any bugs?</label>
-    <input type="text" id="question3" placeholder="Say something...">
-
-    <label for="question4">What do you think we should work on next?</label>
-    <input type="text" id="question4" placeholder="Say something...">
-   
-
-  <label for="question5">And finally, do you have some other thoughts about the product you'd like to share?</label>
-  <input type="text" id="question5" placeholder="Say something...">
-
-
-    <label for="question6">Subject</label>
-    <textarea id="question6" placeholder="Write something.." style="height:200px"></textarea>
-
-    <input type="submit" value="Submit">
-  </form>
-</div> -->
-
-
 <div class="col-md-12">
   <nb-card>
     <nb-card-body>
       <h1>Create Feedback Form</h1>
       <hr>
 
+
+
       <nb-card class="mt-4" *ngFor="let question of feedbackform.questions;let i = index">
         <nb-card-body>
+          <form [formGroup]="schForm">
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Question {{i+1}}:</mat-label>
+                  <input type="text" formControlName="beta" matInput>
+                </mat-form-field>
+              </div>
+            </div>
+          </form>
+
           <div class="row">
             <div class="col-md-9">
               <mat-form-field appearance="fill" class="w-100">
