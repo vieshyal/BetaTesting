@@ -29,7 +29,12 @@ export class CompanyService {
   }
   addBetaTest(data: any) {
     return this.http.post(this.url + '/add', data);
+
   }
+  getById(id) {
+    return this.http.get(this.url + '/getbyid/' + id);
+  }
+
 
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);

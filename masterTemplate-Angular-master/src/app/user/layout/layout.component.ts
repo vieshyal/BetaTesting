@@ -9,12 +9,17 @@ import { app_config } from 'src/config';
 })
 export class LayoutComponent implements OnInit {
   title = app_config.title;
-  url = app_config.api_url + '/';
+  url = app_config.api_url + '/user/profile';
   sidebarItems = [
     {
       title: 'Profile',
       icon: 'person-outline',
-      link: 'uprofile',
+      link: 'profile',
+    },
+    {
+      title: 'Search Beta Test',
+      icon: 'person-outline',
+      link: 'search',
     },
     
     {
@@ -22,6 +27,7 @@ export class LayoutComponent implements OnInit {
       icon: 'person-outline',
       link: 'enrolled',
     },
+    
     {
       title: 'Manage Enrolled',
       icon: 'person-outline',

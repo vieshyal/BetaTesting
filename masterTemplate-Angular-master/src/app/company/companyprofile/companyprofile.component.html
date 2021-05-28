@@ -2,19 +2,19 @@
 
     <nb-card accent="primary" *ngIf="formReady">
         <nb-card-header>
-            <p class="h4">Manage Your Profile</p>
+            <p class="h4">Manage Profile</p>
         </nb-card-header>
         <nb-card-body style="padding: 3rem;">
             <div class="row">
                 <div class="col-md-4">
   
-                  <img [src]="url+currentUser.avatar" class="img-fluid" alt="">
+                  <img [src]="url+currentCompany.avatar" class="img-fluid" alt="">
   
                 </div>
                 <div class="col-md-8">
                     <form [formGroup]="updateForm" (ngSubmit)="updateProfile()">
                         <mat-form-field appearance="fill" class="w-100 mt-2">
-                            <mat-label>Full Name</mat-label>
+                            <mat-label>Company Name</mat-label>
                             <input type="text" matInput formControlName="fullname">
                         </mat-form-field>
   
@@ -24,15 +24,15 @@
                         </mat-form-field>
   
                         <mat-form-field appearance="fill" class="w-100 mt-4">
-                            <mat-label>Age</mat-label>
-                            <input type="number" matInput formControlName="age">
+                            <mat-label>Desc</mat-label>
+                            <input type="text" matInput formControlName="desc">
                         </mat-form-field>
   
-                        <input type="file" class="form-control w-50 mx-auto mt-4 "
+                        Change Profile picture: <input type="file" class="form-control w-50  mt-4 "
                             (change)="uploadAvatar($event)">
   
                         <img [src]="imgURL" alt="" *ngIf="imgURL" class="img-fluid mt-3"
-                            style="height: 200px; width: 200px; border: 2px solid rgb(20, 17, 17);">
+                            style="height: 200px; width: 200px; border: 1px solid rgba(20, 17, 17, 0);">
                             <br>
                         <button nbButton status="primary" hero class="mt-3">Update</button>
   
@@ -52,7 +52,7 @@
         <nb-card-body style="padding: 3rem;">
             <mat-form-field appearance="fill" class="w-100 mt-2">
                 <mat-label>Previous Password</mat-label>
-                <input type="text" matInput disabled [(ngModel)]="currentUser.password">
+                <input type="text" matInput disabled [(ngModel)]="currentCompany.password">
             </mat-form-field>
   
             <mat-form-field appearance="fill" class="w-100 mt-5">

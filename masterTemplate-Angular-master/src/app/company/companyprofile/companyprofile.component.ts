@@ -3,16 +3,16 @@ import { FormBuilder } from '@angular/forms';
 import { NbToastrService } from '@nebular/theme';
 import { app_config } from 'src/config';
 import Swal from 'sweetalert2';
-import {UserService} from 'src/app/services/user.service';
+import {CompanyService} from 'src/app/services/company.service';
 
 @Component({
-  selector: 'app-userprofile',
-  templateUrl: './userprofile.component.html',
-  styleUrls: ['./userprofile.component.css'],
+  selector: 'app-companyprofile',
+  templateUrl: './companyprofile.component.html',
+  styleUrls: ['./companyprofile.component.css'],
 })
-export class UserprofileComponent implements OnInit {
+export class CompanyprofileComponent implements OnInit {
   url = app_config.api_url + '/';
-  currentUser: any;
+  currentCompany: any;
   updateForm;
   formReady = false;
   avatarImage: any;
@@ -20,14 +20,14 @@ export class UserprofileComponent implements OnInit {
   imgURL: string | ArrayBuffer;
 
   constructor(
-    private userService: UserService,
+    private companyService: CompanyService,
     private fb: FormBuilder,
     private toastr: NbToastrService
   ) {}
 
   ngOnInit(): void {
-    this.currentUser = this.userService.currentUser;
-    this.initUpdateForm(this.currentUser);
+    this.currentCompany = this.companyService.currentCompany;
+    this.initUpdateForm(this.currentCompany);
   }
 
   initUpdateForm(data) {
@@ -44,11 +44,11 @@ export class UserprofileComponent implements OnInit {
       return;
     }
 
-    this.userService
-      .update(this.currentUser._id, { password: newPwd })
+    this.companyService
+      .update(this.currentCompany._id, { password: newPwd })
       .subscribe((res) => {
-        this.userService.refreshUser();
-        this.currentUser = this.userService.currentUser;
+        this.companyService.refreshCompany();
+        this.currentCompany = this.companyService.currentCompany;
         Swal.fire({
           icon: 'success',
           title: 'Success!',
@@ -70,7 +70,7 @@ export class UserprofileComponent implements OnInit {
     let formData = new FormData();
     this.avatarImage = files[0].name;
     formData.append('image', files[0], files[0].name);
-    this.userService.uploadAvatar(formData).subscribe((response) => {
+    this.companyService.uploadAvatar(formData).subscribe((response) => {
       console.log(response);
     });
   }
@@ -94,11 +94,11 @@ export class UserprofileComponent implements OnInit {
   updateProfile() {
     let formdata = this.updateForm.value;
     formdata.avatar = this.avatarImage;
-    this.userService
-      .update(this.currentUser._id, formdata)
+    this.companyService
+      .update(this.currentCompany._id, formdata)
       .subscribe((data) => {
-        this.userService.refreshUser();
-        this.currentUser = this.userService.currentUser;
+        this.companyService.refreshCompany();
+        this.currentCompany = this.companyService.currentCompany;
         this.toastr.success('Profile Updated', 'Success!');
       });
   }

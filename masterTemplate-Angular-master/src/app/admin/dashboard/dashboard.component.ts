@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import{ CompanyService } from 'src/app/services/company.service';
 import * as CanvasJS from '../../../assets/canvasjs.min';
 import { Observable } from 'rxjs';
 
@@ -10,11 +11,12 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
   usersList: any;
-  blogsList: any;
-  constructor(public userService: UserService) {}
+  companiesList: any;
+  constructor(public userService: UserService, public companyService: CompanyService) {}
 
   ngOnInit(): void {
     this.getUsers();
+    this.getCompanies();
   }
 
   getUsers() {
@@ -22,6 +24,13 @@ export class DashboardComponent implements OnInit {
       console.log(data);
       this.usersList = data;
       this.prepareRegData(this.usersList);
+    });
+  }
+  getCompanies() {
+    this.companyService.getAll().subscribe((data) => {
+      console.log(data);
+      this.companiesList = data;
+      this.prepareRegData(this.companiesList);
     });
   }
 

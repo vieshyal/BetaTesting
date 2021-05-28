@@ -46,7 +46,7 @@ export class ManageUsersComponent implements OnInit {
       if (result.isConfirmed) {
         this.userService.deleteUser(id).subscribe((res) => {
           console.log(res);
-          this.toastrService.info('Your BETA TEST has been deleted', 'Success');
+          this.toastrService.info('User has been deleted', 'Success');
           this.fetchUsers();
         });
       }

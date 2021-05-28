@@ -25,7 +25,7 @@ import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-
 import { AdminGuard } from './guards/admin.guard';
 import { ManageUsersComponent } from './admin/manageusers/manageusers.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
-import { ProfileComponent as CompanyProfile } from './company/profile/profile.component';
+
 import { ContactusComponent } from './contactus/contactus.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
@@ -38,8 +38,9 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
-import { UserprofileComponent } from './user/userprofile/userprofile.component';
-import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
+import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -52,7 +53,7 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'contactus', component: ContactusComponent },
       { path: 'reset', component: ResetPasswordComponent },
-      { path: 'search', component: SearchBetaTestComponent },
+    
       {path : 'aboutus', component: AboutusComponent},
       {path :'home', component: HomeComponent },
       
@@ -70,6 +71,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageusers', component: ManageUsersComponent },
       { path: 'managecompanys', component: ManageCompanysComponent },
+      {path : 'profile', component:ProfileComponent},
       
     ],
   },
@@ -79,11 +81,12 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     children: [
       { path: 'layout', component: LayoutComponent },
+      {path :'search', component:SearchBetaTestComponent},
     
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },
       {path : 'manage', component:ManageEnrolledComponent},
-      {path:'uprofile', component:UserprofileComponent},
+      {path:'profile', component:ProfileComponent},
       
     ],
   },
@@ -94,7 +97,9 @@ const routes: Routes = [
       { path: '', redirectTo: '/company/login', pathMatch: 'full' },
       { path: 'addtest', component: AddBetaTestComponent },
       { path: 'managetests', component: ManageBetaTestComponent },
-      { path: 'profile', component: CompanyProfile },
+      {path: 'companyprofile', component:CompanyprofileComponent},
+      
+      
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       

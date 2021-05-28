@@ -58,8 +58,9 @@ import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
-import { AdminprofileComponent } from './admin/adminprofile/adminprofile.component';
-import { UserprofileComponent } from './user/userprofile/userprofile.component';
+import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
+
+
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { UserprofileComponent } from './user/userprofile/userprofile.component';
     AboutusComponent,
     HomeComponent,
     EnrolledComponent,
+    CompanyprofileComponent,
   ],
   imports: [
     BrowserModule,

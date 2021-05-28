@@ -9,12 +9,12 @@ import { app_config } from 'src/config';
 })
 export class CompanyLayoutComponent implements OnInit {
   title = app_config.title;
-  url = app_config.api_url + '/';
+  url = app_config.api_url + '/companyprofile';
   sidebarItems = [
     {
       title: 'Profile',
       icon: 'person-outline',
-      link: 'profile',
+      link: 'companyprofile',
     },
     {
       title: 'Publish new Test',
