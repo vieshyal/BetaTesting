@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     this.companyService.getAll().subscribe((data) => {
       console.log(data);
       this.companiesList = data;
-      this.prepareRegData(this.companiesList);
+      this.prepareRegData1(this.companiesList);
     });
   }
 
@@ -63,12 +63,26 @@ export class DashboardComponent implements OnInit {
       this.drawchart(
         'regByDate',
         regData,
-        'Registration Data',
+        'User Registration Data',
         'registration(s)',
         'No. of Registrations'
       );
     });
   }
+  prepareRegData1(companies) {
+    this.getDatewiseValues(companies, 'created').subscribe((data) => {
+      console.log(data);
+      let regData = data;
+      this.drawchart(
+        'companyByDate',
+        regData,
+        'Company Registration Data',
+        'registration(s)',
+        'No. of Registrations'
+      );
+    });
+  }
+
 
   getDatewiseValues(records, colname) {
     console.log(records);
