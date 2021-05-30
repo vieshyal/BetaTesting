@@ -17,7 +17,7 @@ export class LayoutComponent implements OnInit {
       link: 'profile',
     },
     {
-      title: 'Enroll Test',
+      title: 'Enrolled Test',
       icon: 'person-outline',
       link: 'enrolled',
     },
