@@ -13,6 +13,19 @@ router.post('/add', (req, res) => {
         })
 })
 
+router.put('/update/:id', (req, res) => {
+
+    Model.findByIdAndUpdate(req.params.id, req.body)
+        .then(data => {
+            console.log('user data added');
+            res.status(200).json({ message: 'success' });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 router.get('/getbyemail/:email', (req, res) => {
 
     Model.findOne({ email: req.params.email })
