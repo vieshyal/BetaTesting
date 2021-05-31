@@ -40,10 +40,9 @@ import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
 
-
-
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   {
     path: 'app',
     component: AppLayout,
@@ -53,27 +52,21 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'contactus', component: ContactusComponent },
       { path: 'reset', component: ResetPasswordComponent },
-    
-      {path : 'aboutus', component: AboutusComponent},
-      {path :'home', component: HomeComponent },
-      
+
+      { path: 'aboutus', component: AboutusComponent },
     ],
   },
 
-
-  
   {
     path: 'admin',
     component: AdminLayout,
     canActivate: [AdminGuard],
 
     children: [
-    
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageusers', component: ManageUsersComponent },
       { path: 'managecompanys', component: ManageCompanysComponent },
-      {path : 'profile', component:ProfileComponent},
-      
+      { path: 'profile', component: ProfileComponent },
     ],
   },
   {
@@ -82,13 +75,12 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     children: [
       { path: 'layout', component: LayoutComponent },
-      {path :'search', component:SearchBetaTestComponent},
-    
+      { path: 'search', component: SearchBetaTestComponent },
+
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },
-      {path : 'manage', component:ManageEnrolledComponent},
-      {path:'profile', component:ProfileComponent},
-      
+      { path: 'manage', component: ManageEnrolledComponent },
+      { path: 'profile', component: ProfileComponent },
     ],
   },
   {
@@ -98,12 +90,11 @@ const routes: Routes = [
       { path: '', redirectTo: '/company/login', pathMatch: 'full' },
       { path: 'addtest', component: AddBetaTestComponent },
       { path: 'managetests', component: ManageBetaTestComponent },
-      {path: 'companyprofile', component:CompanyprofileComponent},
-      
-      
+      { path: 'companyprofile', component: CompanyprofileComponent },
+
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      
+
       { path: 'feedback form', component: CreateFeedbackFormComponent },
       { path: 'view feedback', component: ViewFeedbackComponent },
     ],

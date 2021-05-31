@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import{ CompanyService } from 'src/app/services/company.service';
+import { CompanyService } from 'src/app/services/company.service';
 import * as CanvasJS from '../../../assets/canvasjs.min';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,10 @@ import { Observable } from 'rxjs';
 export class DashboardComponent implements OnInit {
   usersList: any;
   companiesList: any;
-  constructor(public userService: UserService, public companyService: CompanyService) {}
+  constructor(
+    public userService: UserService,
+    public companyService: CompanyService
+  ) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -30,7 +33,7 @@ export class DashboardComponent implements OnInit {
     this.companyService.getAll().subscribe((data) => {
       console.log(data);
       this.companiesList = data;
-      this.prepareRegData1(this.companiesList);
+      this.prepareComData(this.companiesList);
     });
   }
 
@@ -69,7 +72,8 @@ export class DashboardComponent implements OnInit {
       );
     });
   }
-  prepareRegData1(companies) {
+
+  prepareComData(companies) {
     this.getDatewiseValues(companies, 'created').subscribe((data) => {
       console.log(data);
       let regData = data;
@@ -82,7 +86,6 @@ export class DashboardComponent implements OnInit {
       );
     });
   }
-
 
   getDatewiseValues(records, colname) {
     console.log(records);
