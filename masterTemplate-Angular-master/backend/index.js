@@ -11,11 +11,7 @@ const utilRouter = require('./routers/util');
 const cors = require('cors');
 
 var corsOptions = {
-<<<<<<< HEAD
     origin: 'http://192.168.43.91:4200',
-=======
-    origin: 'http://192.168.43.104:4200',
->>>>>>> 49e1015e5f643a0a2af6813f6aa0474668bb5785
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
@@ -24,11 +20,7 @@ const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
     cors: {
-<<<<<<< HEAD
         origin: "http://192.168.43.91:4200",
-=======
-        origin: "http://192.168.43.104:4200",
->>>>>>> 49e1015e5f643a0a2af6813f6aa0474668bb5785
         methods: ["GET", "POST"]
     }
 });
@@ -61,10 +53,6 @@ app.use('/util', utilRouter);
 
 app.use(express.static('./uploads'))
 
-<<<<<<< HEAD
 app.listen(port, '192.168.43.91', () => {
-=======
-app.listen(port, '192.168.43.104', () => {
->>>>>>> 49e1015e5f643a0a2af6813f6aa0474668bb5785
     console.log('Hurray!!!!! server started on port ' + port);
 });
