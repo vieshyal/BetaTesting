@@ -105,8 +105,13 @@ export class CreateFeedbackFormComponent implements OnInit {
 
     console.log(formdata);
 
-    this.feedbackService.addFeedback(formdata).subscribe((res) => {
-      console.log(res);
+    this.feedbackService.addFeedback(formdata).subscribe((data) => {
+      console.log(data);
+      this.betaService
+        .addFeedbackForm(formdata.beta, data['_id'])
+        .subscribe((data) => {
+          console.log(data);
+        });
     });
   }
 }

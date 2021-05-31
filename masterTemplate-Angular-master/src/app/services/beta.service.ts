@@ -45,4 +45,8 @@ export class BetaService {
   uploadAvatar(file: any) {
     return this.http.post(app_config.api_url + '/util/addimg/', file);
   }
+
+  addFeedbackForm(id, form_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { forms: form_id });
+  }
 }
