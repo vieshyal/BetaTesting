@@ -19,6 +19,11 @@
                             {{beta.startDate | date}}
                           </div>
                       </div>
+                      <h3>Feedback Forms</h3>
+                      <hr>
+                      <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let form of list"></li>
+                      </ul>
                   </nb-accordion-item-body>
                 </nb-accordion-item>
             </nb-accordion>

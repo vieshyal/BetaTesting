@@ -69,7 +69,7 @@ export class ResetPasswordComponent implements OnInit {
             icon: 'success',
             background: '#151a30',
           }).then(() => {
-            this.router.navigate(['/app/login']);
+            this.router.navigate(['/app/signin']);
           });
         });
     } else {
@@ -85,6 +85,7 @@ export class ResetPasswordComponent implements OnInit {
         this.showReset = true;
         this.otp = Math.floor(1000 + Math.random() * 9000);
         this.sendmail({
+          subject: 'Password Reset',
           to: email,
           message: `Your OTP for reseting password is ${this.otp}`,
         }).subscribe((data) => {

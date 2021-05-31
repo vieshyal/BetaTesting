@@ -38,6 +38,7 @@ export class AddBetaTestComponent implements OnInit {
       eligibility: '',
       company: this.companyService.currentCompany._id,
       users: Array,
+      forms: Array,
       startDate: new Date(),
       endDate: new Date(),
       created: new Date(),

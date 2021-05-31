@@ -17,24 +17,16 @@ export class LayoutComponent implements OnInit {
       link: 'profile',
     },
     {
-      title: 'Search Beta Test',
-      icon: 'person-outline',
-      link: 'search',
-    },
-    
-    {
-      title: 'Enrolled',
+      title: 'Enrolled Test',
       icon: 'person-outline',
       link: 'enrolled',
     },
-    
+
     {
       title: 'Manage Enrolled',
       icon: 'person-outline',
       link: 'manage',
     },
-    
-   
   ];
 
   constructor(public userService: UserService) {}

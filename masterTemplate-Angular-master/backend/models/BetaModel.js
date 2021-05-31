@@ -7,6 +7,7 @@ const schema = mongoose.Schema({
     eligibility: Object,
     company: { type: mongoose.Types.ObjectId, ref: "Company" },
     users: [{ type: mongoose.Types.ObjectId, ref: "Users" }],
+    forms: [{ type: mongoose.Types.ObjectId, ref: "feedbacks" }],
     created: Date,
     thumb: String,
     startDate: Date,

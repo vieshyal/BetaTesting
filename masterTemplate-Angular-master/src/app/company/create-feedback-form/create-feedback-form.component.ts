@@ -6,6 +6,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 import { CompanyService } from 'src/app/services/company.service';
 import Swal from 'sweetalert2';
 import { from } from 'rxjs';
+import { BetaService } from 'src/app/services/beta.service';
 
 @Component({
   selector: 'app-create-feedback-form',
@@ -27,17 +28,29 @@ export class CreateFeedbackFormComponent implements OnInit {
   erroMsg: string;
   questionTypes = ['text', 'radio', 'checkbox'];
   schForm;
+  betaList;
 
   constructor(
     private fb: FormBuilder,
     private companyService: CompanyService,
     private feedbackService: FeedbackService,
     private router: Router,
-    private toastr: NbToastrService
+    private toastr: NbToastrService,
+    private betaService: BetaService
   ) {}
 
   ngOnInit(): void {
     this.scheduleForm();
+    this.fetchBeta();
+  }
+
+  fetchBeta() {
+    this.betaService
+      .getByCompany(this.companyService.currentCompany._id)
+      .subscribe((data) => {
+        console.log(data);
+        this.betaList = data;
+      });
   }
 
   scheduleForm() {
@@ -45,9 +58,9 @@ export class CreateFeedbackFormComponent implements OnInit {
       company: this.companyService.currentCompany._id,
       beta: '',
       users: Array,
-      startDate: '',
       endDate: '',
       created: new Date(),
+      form: {},
     });
   }
   submitFeedbackForm() {
@@ -61,7 +74,7 @@ export class CreateFeedbackFormComponent implements OnInit {
 
   addQuestion() {
     this.feedbackform.questions.push({
-      name: 'Question 1',
+      name: 'Sample Question 1',
       answertype: 'text',
       answer: '',
     });
@@ -87,6 +100,18 @@ export class CreateFeedbackFormComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.feedbackform);
+    let formdata = this.schForm.value;
+    formdata.form = this.feedbackform;
+
+    console.log(formdata);
+
+    this.feedbackService.addFeedback(formdata).subscribe((data) => {
+      console.log(data);
+      this.betaService
+        .addFeedbackForm(formdata.beta, data['_id'])
+        .subscribe((data) => {
+          console.log(data);
+        });
+    });
   }
 }

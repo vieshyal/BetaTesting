@@ -13,12 +13,12 @@ router.post('/add', (req, res) => {
         })
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.put('/update/:id', (req, res) => {
 
-    Model.findByIdAndDelete(req.params.id)
+    Model.findByIdAndUpdate(req.params.id, req.body)
         .then(data => {
-            console.log('User deleted by id');
-            res.status(200).json(data);
+            console.log('user data added');
+            res.status(200).json({ message: 'success' });
         })
         .catch(err => {
             console.error(err);
