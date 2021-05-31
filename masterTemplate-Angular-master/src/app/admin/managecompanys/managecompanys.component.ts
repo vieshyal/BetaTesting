@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NbToastrService } from '@nebular/theme';
 import { CompanyService } from 'src/app/services/company.service';
-import { UserService } from 'src/app/services/user.service';
+import {app_config} from 'src/config';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,9 +15,10 @@ export class ManageCompanysComponent implements OnInit {
   loadingCompanys = true;
 
   constructor(
-    public userService: UserService,
+    private companyService: CompanyService,
     private router: Router,
-    private companyService: CompanyService
+    
+    private toastrService:NbToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -43,13 +45,8 @@ export class ManageCompanysComponent implements OnInit {
       if (result.isConfirmed) {
         this.companyService.deleteCompany(id).subscribe((res) => {
           console.log(res);
-          Swal.fire({
-            title: 'Deleted!',
-            text: 'companys account has been deleted.',
-            icon: 'info',
-          }).then(() => {
-            this.fetchCompanys();
-          });
+          this.toastrService.info('Your BETA TEST has been deleted', 'Success');
+          this.fetchCompanys();
         });
       }
     });

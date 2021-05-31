@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CompanyService } from 'src/app/services/company.service';
+
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
+import{app_config} from 'src/config';
+import { NbToastrService } from '@nebular/theme';
 //import { AnyMxRecord } from 'node:dns';
 
 @Component({
@@ -17,7 +19,7 @@ export class ManageUsersComponent implements OnInit {
   constructor(
     public userService: UserService,
     private router: Router,
-    public companyService: CompanyService
+    private toastrService: NbToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class ManageUsersComponent implements OnInit {
     });
   }
 
-  deleteUser(id:any) {
+  deleteUser(id) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -44,17 +46,12 @@ export class ManageUsersComponent implements OnInit {
       if (result.isConfirmed) {
         this.userService.deleteUser(id).subscribe((res) => {
           console.log(res);
-          Swal.fire({
-            title: 'Deleted!',
-            text: 'users account has been deleted.',
-            icon: 'info',
-          }).then(() => {
-            this.fetchUsers();
-          });
+          this.toastrService.info('User has been deleted', 'Success');
+          this.fetchUsers();
         });
       }
     });
   }
 
-  updateUser(id:any) {}
+  updateUser(id) {}
 }

@@ -29,7 +29,12 @@ export class CompanyService {
   }
   addBetaTest(data: any) {
     return this.http.post(this.url + '/add', data);
+
   }
+  getById(id) {
+    return this.http.get(this.url + '/getbyid/' + id);
+  }
+
 
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);
@@ -48,5 +53,13 @@ export class CompanyService {
 
   uploadAvatar(file: any) {
     return this.http.post(app_config.api_url + '/util/addimg', file);
+  }
+  refreshCompany() {
+    this.http
+      .get(this.url + '/getbyid/' + this.currentCompany._id)
+      .subscribe((userdata) => {
+        this.currentCompany = userdata;
+        sessionStorage.setItem('user', JSON.stringify(userdata));
+      });
   }
 }

@@ -11,6 +11,7 @@
 
           <!-- visible when not logged in -->
           <nb-actions size="medium"  *ngIf="!companyService.loggedin" style="margin-left: auto">
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/app/home']">Home</nb-action>
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/company/register']">Register</nb-action>
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/company/login']">Login</nb-action>
           </nb-actions>

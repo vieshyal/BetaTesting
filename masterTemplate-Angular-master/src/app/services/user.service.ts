@@ -23,6 +23,14 @@ export class UserService {
     return this.http.post(this.url + '/add', data);
   }
 
+  addProblem(data: any) {
+    return this.http.post(this.url + '/add', data);
+  }
+
+  getById(id) {
+    return this.http.get(this.url + '/getbyid/' + id);
+  }
+
   getUserByEmail(email: String) {
     return this.http.get(this.url + '/getbyemail/' + email);
   }

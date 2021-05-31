@@ -46,7 +46,7 @@ import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-
 import { AddReviewComponent } from './main/add-review/add-review.component';
 import { CompanyLayoutComponent } from './company/layout/layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
-import { ContactusComponent } from './contactus/contactus.component';
+import {ContactusComponent} from 'src/app/contactus/contactus.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
 import { EnrollTestComponent } from 'src/app/user/enrolltest/enrolltest.component';
@@ -55,7 +55,12 @@ import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.com
 
 import { ChatComponent } from './chat/chat.component';
 import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
+import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
+
+
 
 @NgModule({
   declarations: [
@@ -82,7 +87,10 @@ import { EnrolledComponent } from './user/enrolled/enrolled.component';
     CreateFeedbackFormComponent,
     ViewFeedbackComponent,
     ManageEnrolledComponent,
+    AboutusComponent,
+    HomeComponent,
     EnrolledComponent,
+    CompanyprofileComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +118,7 @@ import { EnrolledComponent } from './user/enrolled/enrolled.component';
   ],
   providers: [
     {
+     
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
@@ -126,3 +135,4 @@ import { EnrolledComponent } from './user/enrolled/enrolled.component';
 })
 export class AppModule {}
 export class PageModule {}
+
