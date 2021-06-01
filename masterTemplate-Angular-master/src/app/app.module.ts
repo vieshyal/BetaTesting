@@ -46,21 +46,17 @@ import { ManageBetaTestComponent } from './company/manage-beta-test/manage-beta-
 import { AddReviewComponent } from './main/add-review/add-review.component';
 import { CompanyLayoutComponent } from './company/layout/layout.component';
 import { ManageCompanysComponent } from './admin/managecompanys/managecompanys.component';
-import {ContactusComponent} from 'src/app/contactus/contactus.component';
+import { ContactusComponent } from 'src/app/contactus/contactus.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SearchBetaTestComponent } from './main/search-beta-test/search-beta-test.component';
 import { EnrollTestComponent } from 'src/app/user/enrolltest/enrolltest.component';
 import { CreateFeedbackFormComponent } from './company/create-feedback-form/create-feedback-form.component';
 import { ViewFeedbackComponent } from './company/view-feedback/view-feedback.component';
 
-import { ChatComponent } from './chat/chat.component';
-import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
-
-
 
 @NgModule({
   declarations: [
@@ -86,7 +82,6 @@ import { CompanyprofileComponent } from './company/companyprofile/companyprofile
     EnrollTestComponent,
     CreateFeedbackFormComponent,
     ViewFeedbackComponent,
-    ManageEnrolledComponent,
     AboutusComponent,
     HomeComponent,
     EnrolledComponent,
@@ -118,7 +113,6 @@ import { CompanyprofileComponent } from './company/companyprofile/companyprofile
   ],
   providers: [
     {
-     
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
@@ -135,4 +129,3 @@ import { CompanyprofileComponent } from './company/companyprofile/companyprofile
 })
 export class AppModule {}
 export class PageModule {}
-

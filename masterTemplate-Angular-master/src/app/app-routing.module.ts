@@ -37,7 +37,6 @@ import { ChatComponent } from './chat/chat.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
-import { ManageEnrolledComponent } from './user/manage-enrolled/manage-enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
 
 const routes: Routes = [
@@ -47,6 +46,7 @@ const routes: Routes = [
     path: 'app',
     component: AppLayout,
     children: [
+      { path: 'home', component: HomeComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
       { path: 'reset', component: ResetPasswordComponent },
@@ -80,7 +80,6 @@ const routes: Routes = [
 
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },
-      { path: 'manage', component: ManageEnrolledComponent },
       { path: 'profile', component: ProfileComponent },
     ],
   },

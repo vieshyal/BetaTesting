@@ -23,12 +23,6 @@ export class LayoutComponent implements OnInit {
       icon: 'person-outline',
       link: 'enrolled',
     },
-
-    {
-      title: 'Manage Enrolled',
-      icon: 'person-outline',
-      link: 'manage',
-    },
   ];
 
   constructor(
