@@ -42,7 +42,7 @@ import { CompanyprofileComponent } from './company/companyprofile/companyprofile
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+ 
   {
     path: 'app',
     component: AppLayout,
@@ -52,6 +52,7 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'contactus', component: ContactusComponent },
       { path: 'reset', component: ResetPasswordComponent },
+      {path: 'home', component: HomeComponent},
 
       { path: 'aboutus', component: AboutusComponent },
     ],
