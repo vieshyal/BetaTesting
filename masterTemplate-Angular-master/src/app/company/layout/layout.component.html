@@ -11,7 +11,7 @@
 
           <!-- visible when not logged in -->
           <nb-actions size="medium"  *ngIf="!companyService.loggedin" style="margin-left: auto">
-            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/app/home']">Home</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['home']">Home</nb-action>
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/company/register']">Register</nb-action>
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/company/login']">Login</nb-action>
           </nb-actions>
@@ -23,7 +23,7 @@
           </nb-actions>
           <nb-user *ngIf="companyService.loggedin"
              size="large"
-             [name]="companyService.currentCompany.fullname"
+             [name]="companyService.currentCompany.name"
              [title]="companyService.currentCompany.email"
              [picture]="url+companyService.currentCompany.avatar"
              [routerLink]="[companyService.currentCompany.iscompany?'/company':'/user']">
@@ -56,13 +56,13 @@
               <a href="" class="hi">Privacy</a>
               <a href="" class="hi">Terms Of Use</a>
          </div>
-
+<!--
          <div class="row">
            <div class="col">
             <nb-icon icon="heart-outline" status="basic"></nb-icon>
            </div>
          </div>
-         
+        -->
           @2021 Digipodium. All Rights Reserved.
          </div>  
       

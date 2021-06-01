@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { app_config } from 'src/config';
+import {NbSidebarService} from '@nebular/theme';
 
 @Component({
   selector: 'company-layout',
@@ -9,7 +10,7 @@ import { app_config } from 'src/config';
 })
 export class CompanyLayoutComponent implements OnInit {
   title = app_config.title;
-  url = app_config.api_url + '/companyprofile';
+  url = app_config.api_url + '/';
   sidebarItems = [
     {
       title: 'Profile',
@@ -37,7 +38,9 @@ export class CompanyLayoutComponent implements OnInit {
       link: 'view feedback',
     },
   ];
-  constructor(public companyService: CompanyService) {}
+  constructor(
+    private sidebar:NbSidebarService,
+    public companyService: CompanyService) {}
 
   ngOnInit(): void {}
 }

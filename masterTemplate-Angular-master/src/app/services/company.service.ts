@@ -35,6 +35,9 @@ export class CompanyService {
     return this.http.get(this.url + '/getbyid/' + id);
   }
 
+  getByName(name){
+    return this.http.get(this.url + '/getbyname' +name);
+  }
 
   deleteCompany(id) {
     return this.http.delete(this.url + '/delete/' + id);
