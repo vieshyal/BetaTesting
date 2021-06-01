@@ -39,6 +39,19 @@ router.get('/getbyid/:id', (req, res) => {
         })
 })
 
+router.get('/getbyname/:name', (req, res) => {
+
+    Model.findByName(req.params.name)
+        .then(data => {
+            console.log('company fetched by name');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 router.get('/getbyemail/:email', (req, res) => {
 
     Model.findOne({ email: req.params.email })

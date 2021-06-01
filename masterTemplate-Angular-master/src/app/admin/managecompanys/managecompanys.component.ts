@@ -45,7 +45,7 @@ export class ManageCompanysComponent implements OnInit {
       if (result.isConfirmed) {
         this.companyService.deleteCompany(id).subscribe((res) => {
           console.log(res);
-          this.toastrService.info('Your BETA TEST has been deleted', 'Success');
+          this.toastrService.info('Company has been deleted', 'Success');
           this.fetchCompanys();
         });
       }
