@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { app_config } from 'src/config';
 import Swal from 'sweetalert2';
+import{ NbToastrService} from '@nebular/theme';
 
 @Component({
   selector: 'app-reset-password',
@@ -22,7 +23,8 @@ export class ResetPasswordComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private userservice: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: NbToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -83,6 +85,11 @@ export class ResetPasswordComponent implements OnInit {
         console.log('user found');
         this.showReset = true;
         this.otp = Math.floor(1000 + Math.random() * 9000);
+        Swal.fire({
+          title: 'Otp Sended on your email',
+          text:'Otp Sent',
+          icon:'success',
+        })
         this.sendmail({
           subject: 'Password Reset',
           to: email,

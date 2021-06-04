@@ -60,9 +60,9 @@ export class CompanyService {
   refreshCompany() {
     this.http
       .get(this.url + '/getbyid/' + this.currentCompany._id)
-      .subscribe((userdata) => {
-        this.currentCompany = userdata;
-        sessionStorage.setItem('user', JSON.stringify(userdata));
+      .subscribe((companydata) => {
+        this.currentCompany =companydata;
+        sessionStorage.setItem('company', JSON.stringify(companydata));
       });
   }
 }
