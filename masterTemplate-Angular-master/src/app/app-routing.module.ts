@@ -41,7 +41,7 @@ import { CompanyprofileComponent } from './company/companyprofile/companyprofile
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
- 
+
   {
     path: 'app',
     component: AppLayout,
@@ -52,8 +52,8 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'contactus', component: ContactusComponent },
       { path: 'reset', component: ResetPasswordComponent },
-      {path: 'home', component: HomeComponent},
-
+      { path: 'home', component: HomeComponent },
+      { path: 'search', component: SearchBetaTestComponent },
       { path: 'aboutus', component: AboutusComponent },
     ],
   },
@@ -75,9 +75,7 @@ const routes: Routes = [
     component: UserLayout,
     canActivate: [LoginGuard],
     children: [
-      { path: 'layout', component: LayoutComponent },
-      { path: 'search', component: SearchBetaTestComponent },
-
+      { path: '', redirectTo: '/user/profile', pathMatch: 'full' },
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },
       { path: 'profile', component: ProfileComponent },
