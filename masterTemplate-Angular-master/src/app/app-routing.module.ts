@@ -38,6 +38,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
+import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -79,6 +80,7 @@ const routes: Routes = [
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'givefeedback/:id', component: AddFeedbackComponent },
     ],
   },
   {
