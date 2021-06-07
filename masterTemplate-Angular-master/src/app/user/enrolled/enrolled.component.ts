@@ -26,4 +26,8 @@ export class EnrolledComponent implements OnInit {
         this.betaList = data;
       });
   }
+
+  expired(date) {
+    return date < new Date();
+  }
 }
