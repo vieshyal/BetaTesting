@@ -53,6 +53,7 @@ const routes: Routes = [
       { path: 'contactus', component: ContactusComponent },
       { path: 'reset', component: ResetPasswordComponent },
       {path: 'home', component: HomeComponent},
+      {path: 'search', component:SearchBetaTestComponent},
 
       { path: 'aboutus', component: AboutusComponent },
     ],
