@@ -5,8 +5,8 @@
             <p class="h4">Manage your BETA Tests</p>
         </nb-card-header>
         <nb-card-body>
-            <nb-accordion *ngIf="betaList,companysList">
-                <nb-accordion-item *ngFor="let beta of betaList , let company of companysList">
+            <nb-accordion *ngIf="betaList">
+                <nb-accordion-item *ngFor="let beta of betaList">
                   <nb-accordion-item-header>
                     {{beta.title}}
                   </nb-accordion-item-header>
