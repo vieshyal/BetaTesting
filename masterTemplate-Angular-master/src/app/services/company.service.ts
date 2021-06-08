@@ -34,6 +34,9 @@ export class CompanyService {
   getById(id) {
     return this.http.get(this.url + '/getbyid/' + id);
   }
+  getByUser(id) {
+    return this.http.get(this.url + '/getbyuser/' + id);
+  }
 
   getByName(name){
     return this.http.get(this.url + '/getbyname' +name);

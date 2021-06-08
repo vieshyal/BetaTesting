@@ -18,14 +18,10 @@ export class LayoutComponent implements OnInit {
       icon: 'person-outline',
       link: 'profile',
     },
-    {
-      title: 'Search Beta Test',
-      icon: 'person-outline',
-      link: 'search',
-    },
+    
     {
       title: 'Enrolled Test',
-      icon: 'person-outline',
+      icon: 'file-text',
       link: 'enrolled',
     },
   ];

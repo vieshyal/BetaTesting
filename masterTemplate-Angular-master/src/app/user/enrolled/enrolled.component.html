@@ -5,20 +5,41 @@
             <p class="h4">Manage your BETA Tests</p>
         </nb-card-header>
         <nb-card-body>
-            <nb-accordion *ngIf="betaList">
-                <nb-accordion-item *ngFor="let beta of betaList">
+            <nb-accordion *ngIf="betaList,companysList">
+                <nb-accordion-item *ngFor="let beta of betaList , let company of companysList">
                   <nb-accordion-item-header>
                     {{beta.title}}
                   </nb-accordion-item-header>
                   <nb-accordion-item-body>
-                      <div class="row">
-                          <div class="col-md-4">
-                              <img [src]="url+beta.thumb" class="img-fluid" alt="">
-                          </div>
-                          <div class="col-md-8">
-                            {{beta.startDate | date}}
-                          </div>
-                      </div>
+                      
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img [src]="url+beta.thumb" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-md-8 mt-5">
+                            <div>
+                                Company Name :
+                                {{company.name}}
+                            </div>
+                            <div>
+                                Company Email :
+                                {{company.email}}
+                            </div>
+                            <div>
+                                Start Date : 
+                                {{beta.startDate | date}}
+
+                            </div>
+                            <div>
+                                End Date:
+                                {{beta.endDate | date}}
+                            </div>
+                            
+                            
+                               
+                           </div>
+                    </div>
+                    
                      
                   </nb-accordion-item-body>
                 </nb-accordion-item>

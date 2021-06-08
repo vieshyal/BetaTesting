@@ -90,5 +90,18 @@ router.delete('/delete/:id', (req, res) => {
             res.status(500).json(err);
         })
 })
+router.get('/getbyuser/:id', (req, res) => {
 
+    Model.find({
+        users: req.params.id
+    }).populate('company')
+        .then(data => {
+            console.log('Beta model fetched by user');
+            res.status(200).json(data);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
 module.exports = router;

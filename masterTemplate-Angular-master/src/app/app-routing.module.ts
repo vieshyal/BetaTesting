@@ -77,7 +77,7 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     children: [
       { path: 'layout', component: LayoutComponent },
-      { path: 'search', component: SearchBetaTestComponent },
+      
 
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },

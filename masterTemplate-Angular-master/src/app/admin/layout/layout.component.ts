@@ -19,17 +19,17 @@ export class LayoutComponent implements OnInit {
     },
     {
       title: 'Manage Users',
-      icon: 'person-outline',
+      icon: 'people',
       link: 'manageusers',
     },
     {
       title: 'Manage Companys',
-      icon: 'person-outline',
+      icon: 'people',
       link: 'managecompanys',
     },
     {
       title: 'View Dashboard',
-      icon: 'person-outline',
+      icon: 'file-text',
       link: 'dashboard',
     },
   ];

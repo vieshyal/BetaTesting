@@ -17,7 +17,6 @@ export class ManageCompanysComponent implements OnInit {
   constructor(
     private companyService: CompanyService,
     private router: Router,
-    
     private toastrService:NbToastrService,
   ) {}
 

@@ -17,6 +17,13 @@
             <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/user/login']">Login</nb-action>
           </nb-actions>
 
+          <nb-actions size="medium"  *ngIf="userService.loggedin">
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/app/home']">Home</nb-action>
+            <nb-action nbTooltip="Home" nbTooltipIcon="home-outline" [routerLink]="['/app/search']">Search Beta Test</nb-action>
+          </nb-actions>
+
+          
+
           <!-- visible when logged in -->
           <nb-actions size="medium" *ngIf="userService.loggedin" style="margin-left: auto">
             
