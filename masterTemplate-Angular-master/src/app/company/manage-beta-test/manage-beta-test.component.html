@@ -15,8 +15,25 @@
                           <div class="col-md-4">
                               <img [src]="url+beta.thumb" class="img-fluid" alt="">
                           </div>
-                          <div class="col-md-8">
-                            {{beta.startDate | date}}
+                          <div class="col-md-8 mt-5">
+                              <div>
+                                  Start Date :
+                                  {{beta.startDate | date}}
+
+                              </div>
+                              <div>
+                                  End Date :
+                                  {{beta.endDate | date}}
+                              </div>
+                              <div>
+                                  Type :
+                                  {{beta.type}}
+                              </div>
+                              <div>
+                                  Eligibility :
+                                  {{beta.eligibility}}
+                              </div>
+                            
                           </div>
                       </div>
                     

@@ -15,6 +15,7 @@ import { NbToastrService } from '@nebular/theme';
 export class ManageUsersComponent implements OnInit {
   usersList: any;
   loadingUsers = true;
+  url = app_config.api_url + '/';
 
   constructor(
     public userService: UserService,

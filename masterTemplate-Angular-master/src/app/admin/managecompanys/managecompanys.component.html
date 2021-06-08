@@ -11,8 +11,30 @@
                     {{company.name}}
                   </nb-accordion-item-header>
                   <nb-accordion-item-body>
-                    {{company.email}}
-                    {{company.password}}
+                      
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img [src]="url+company.avatar" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-md-8 mt-5">
+                                <div>
+                                    Email :
+                                    {{company.email}}
+  
+                                </div>
+                                <div>
+                                    Password :
+                                    {{company.password}}
+                                </div>
+                                <div>
+                                    Desc :
+                                    {{company.desc}}
+                                </div>
+                                
+                              
+                            </div>
+                        </div>
+                    
                     <div class="row mt-5">
                         <div class="col text-center">
                             <button class="col-10" nbButton (click)="updateCompany(company._id)">Edit</button>

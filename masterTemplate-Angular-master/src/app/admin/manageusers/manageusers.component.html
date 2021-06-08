@@ -11,8 +11,29 @@
                     {{user.fullname}}
                   </nb-accordion-item-header>
                   <nb-accordion-item-body>
-                    {{user.email}}
-                    {{user.password}}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img [src]="url+user.avatar" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-md-8 mt-5">
+                            <div>
+                                Email :
+                                {{user.email}}
+
+                            </div>
+                            <div>
+                                Password :
+                                {{user.password}}
+                            </div>
+                            <div>
+                                Age :
+                                {{user.age}}
+                            </div>
+                            
+                          
+                        </div>
+                    </div>
+
                     <div class="row mt-5">
                         <div class="col text-center">
                             <button class="col-10" nbButton (click)="updateUser(user._id)">Edit</button>

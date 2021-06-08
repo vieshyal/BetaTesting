@@ -65,6 +65,7 @@ const routes: Routes = [
     canActivate: [AdminGuard],
 
     children: [
+      { path: '' , redirectTo: '/admin/dashboard', pathMatch: 'full'},
       { path: 'dashboard', component: DashboardComponent },
       { path: 'manageusers', component: ManageUsersComponent },
       { path: 'managecompanys', component: ManageCompanysComponent },
@@ -90,7 +91,7 @@ const routes: Routes = [
     path: 'company',
     component: CompanyLayoutComponent,
     children: [
-      { path: '', redirectTo: '/company/login', pathMatch: 'full' },
+      { path: '', redirectTo: '/company/companyprofile', pathMatch: 'full' },
       { path: 'addtest', component: AddBetaTestComponent },
       { path: 'managetests', component: ManageBetaTestComponent },
       { path: 'companyprofile', component: CompanyprofileComponent },

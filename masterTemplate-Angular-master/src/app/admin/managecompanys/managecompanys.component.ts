@@ -9,10 +9,11 @@ import Swal from 'sweetalert2';
   selector: 'app-managecompanys',
   templateUrl: './managecompanys.component.html',
   styleUrls: ['./managecompanys.component.css'],
-})
+})     
 export class ManageCompanysComponent implements OnInit {
   companysList: any;
   loadingCompanys = true;
+  url = app_config.api_url + '/';
 
   constructor(
     private companyService: CompanyService,
