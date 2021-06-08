@@ -38,10 +38,11 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
+import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
- 
+
   {
     path: 'app',
     component: AppLayout,
@@ -52,9 +53,8 @@ const routes: Routes = [
       { path: 'reset', component: ResetPasswordComponent },
       { path: 'contactus', component: ContactusComponent },
       { path: 'reset', component: ResetPasswordComponent },
-      {path: 'home', component: HomeComponent},
-      {path: 'search', component:SearchBetaTestComponent},
-
+      { path: 'home', component: HomeComponent },
+      { path: 'search', component: SearchBetaTestComponent },
       { path: 'aboutus', component: AboutusComponent },
     ],
   },
@@ -79,9 +79,11 @@ const routes: Routes = [
       { path: 'layout', component: LayoutComponent },
       
 
+      { path: '', redirectTo: '/user/profile', pathMatch: 'full' },
       { path: 'enroll/:id', component: EnrollTestComponent },
       { path: 'enrolled', component: EnrolledComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'givefeedback/:id', component: AddFeedbackComponent },
     ],
   },
   {

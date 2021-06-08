@@ -11,7 +11,11 @@ const utilRouter = require('./routers/util');
 const cors = require('cors');
 
 var corsOptions = {
+<<<<<<< HEAD
     origin: 'http://192.168.43.177:4200',
+=======
+    origin: 'http://192.168.43.91:4200',
+>>>>>>> 224f67ce64e5804c0db2a0106de0104906412ade
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
@@ -20,7 +24,11 @@ const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
     cors: {
+<<<<<<< HEAD
         origin: "http://192.168.43.177:4200",
+=======
+        origin: "http://192.168.43.91:4200",
+>>>>>>> 224f67ce64e5804c0db2a0106de0104906412ade
         methods: ["GET", "POST"]
     }
 });

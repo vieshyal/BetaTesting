@@ -47,6 +47,7 @@ export class EnrolledComponent implements OnInit {
       });
   }
 
+  expired(date) {
+    return date < new Date();
   }
-
-
+}

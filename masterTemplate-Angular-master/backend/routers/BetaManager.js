@@ -15,7 +15,7 @@ router.post('/add', (req, res) => {
 
 router.get('/getbycompany/:id', (req, res) => {
 
-    Model.find({ company: req.params.id }).populate('company').populate('users')
+    Model.find({ company: req.params.id }).populate('company').populate('users').populate('forms')
         .then(data => {
             console.log('Beta model fetched by company');
             res.status(200).json(data);

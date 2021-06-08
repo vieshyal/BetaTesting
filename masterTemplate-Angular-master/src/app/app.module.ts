@@ -57,6 +57,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
+import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { CompanyprofileComponent } from './company/companyprofile/companyprofile
     HomeComponent,
     EnrolledComponent,
     CompanyprofileComponent,
+    AddFeedbackComponent,
   ],
   imports: [
     BrowserModule,
