@@ -1,11 +1,33 @@
 <div class="col-md-10">
     <nb-card>
-        <nb-card-body>
+        <nb-card-body *ngIf="beta">
             <h3 class="text-center">Give Feedback for {{beta.title}}</h3>
             <hr>
 
             <div class="f-form">
-                
+                <div *ngFor="let question of beta.forms[0].form.questions">
+                    <p class="question">{{question.name}}</p>
+                    <div *ngIf="question.answertype == 'text'">
+                        <mat-form-field>
+                            <mat-label>Your Answer</mat-label>
+                            <input type="text" matInput [(ngModel)]="question.answer">
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="question.answertype == 'radio'">
+
+                        <mat-radio-group
+                            class=""
+                            [(ngModel)]="question.answer">
+                            <mat-radio-button class="" *ngFor="let option of question.options" [value]="option.text">
+                                {{option.text}}
+                            </mat-radio-button>
+                            </mat-radio-group>
+                    </div>
+                    <div *ngIf="question.answertype == 'checkbox'">
+
+                        <mat-checkbox class="">Check me!</mat-checkbox>
+                    </div>
+                </div>
             </div>
 
         </nb-card-body>

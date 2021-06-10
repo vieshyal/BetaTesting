@@ -28,7 +28,7 @@ router.get('/getbycompany/:id', (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
 
-    Model.findById(req.params.id).populate('company')
+    Model.findById(req.params.id).populate('company').populate('forms')
         .then(data => {
             console.log('Beta model fetched by id');
             res.status(200).json(data);

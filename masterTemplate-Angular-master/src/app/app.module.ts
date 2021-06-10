@@ -58,6 +58,7 @@ import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
 import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component
     MatNativeDateModule,
     NbToastrModule.forRoot(),
     NbChatModule,
+    MatRadioModule,
   ],
   providers: [
     {
