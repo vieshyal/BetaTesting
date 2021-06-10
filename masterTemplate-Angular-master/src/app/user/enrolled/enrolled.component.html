@@ -43,7 +43,7 @@
                         <h3>Feedback Forms for this Beta Tests</h3>
                         <ul class="list-group">
                             <li class="list-group-item" *ngFor="let form of beta.forms">
-                              <div class="row" *ngIf="!expired(form.endDate)">
+                              <div class="row" *ngIf="!expired(form.endDate) && !hasUnfilled(form.users)">
                                   <div class="col-8">
                                       Form Published {{form.created | date}}
                                   </div>

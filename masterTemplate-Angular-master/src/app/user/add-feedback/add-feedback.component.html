@@ -1,12 +1,47 @@
 <div class="col-md-10">
     <nb-card>
-        <nb-card-body>
-            <h3 class="text-center">Give Feedback for {{beta.title}}</h3>
+        <nb-card-body *ngIf="beta">
+            <h3 class="text-center">BETA Test Feedback</h3>
             <hr>
 
-            <div class="f-form">
-                
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Test Name : {{beta.title}}</h5>
+                </div>
             </div>
+
+            <div class="f-form mt-5">
+                <div *ngFor="let question of answerform.form.questions;let i = index">
+                    <p style="font-size: 1.3em;" class="question mt-4"><b>{{i+1}}. </b>{{question.name}}</p>
+                    <div *ngIf="question.answertype == 'text'">
+                        <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Your Answer</mat-label>
+                            <input type="text" matInput [(ngModel)]="question.answer">
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="question.answertype == 'radio'">
+
+                        <mat-radio-group
+                            class=""
+                            [(ngModel)]="question.answer">
+                            <div class="row">
+                                <div class="col-md-4" *ngFor="let option of question.options">
+                                    <mat-radio-button class=""  [value]="option.text">
+                                        {{option.text}}
+                                    </mat-radio-button>
+                                </div>
+                            </div>
+                            
+                            </mat-radio-group>
+                    </div>
+                    <div *ngIf="question.answertype == 'checkbox'">
+
+                        <mat-checkbox class="" *ngFor="let option of question.options" [(ngModel)]="question.answer">{{option.text}}</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+
+            <button class="mt-5" nbButton hero status="primary" (click)="submitFeedback()">Submit Feedback</button>
 
         </nb-card-body>
     </nb-card>
