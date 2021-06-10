@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
-import { UserService } from 'src/app/services/user.service';
+import {ContactusService} from 'src/app/services/contactus.service';
 import Swal from 'sweetalert2';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-contactus',
@@ -17,7 +18,8 @@ export class ContactusComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
+  
+    private contactusService: ContactusService,
     private router: Router,
     private toastr: NbToastrService,
   ) {}
@@ -28,7 +30,7 @@ export class ContactusComponent implements OnInit {
 
   initContactusForm() {
     this.contactusform = this.fb.group({
-      fullname: '',
+      name: '',
       
       email: '',
       subject: '',
@@ -46,7 +48,7 @@ export class ContactusComponent implements OnInit {
   submitContactusForm() {
     let formdata = this.contactusform.value;
    
-    this.userService.addProblem(formdata).subscribe((res) => {
+    this.contactusService.addProblem(formdata).subscribe((res) => {
       console.log(res);
       Swal.fire({
         icon: 'success',
