@@ -15,7 +15,7 @@ router.post('/add', (req, res) => {
 
 router.put('/update/:id', (req, res) => {
 
-    Model.getByIdAndUpdate(req.params.id, req.body)
+    Model.findByIdAndUpdate(req.params.id, req.body)
         .then(data => {
             console.log('company data updated');
             res.status(200).json({ message: 'success' });
