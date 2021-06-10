@@ -48,7 +48,12 @@ export class ContactusComponent implements OnInit {
    
     this.userService.addProblem(formdata).subscribe((res) => {
       console.log(res);
-      this.toastr.success('Your Message is sent', 'Success');
+      Swal.fire({
+        icon: 'success',
+        title: 'Successfully!',
+        text: 'Your Message is sent',
+
+      })
     });
   }
 }

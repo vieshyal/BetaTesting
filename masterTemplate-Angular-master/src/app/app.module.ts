@@ -59,6 +59,7 @@ import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
 import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +89,7 @@ import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component
     EnrolledComponent,
     CompanyprofileComponent,
     AddFeedbackComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -32,6 +32,11 @@ export class LayoutComponent implements OnInit {
       icon: 'file-text',
       link: 'dashboard',
     },
+    {
+      title: 'View Contacts',
+      icon: 'file-text',
+      link: 'showcontactus',
+    },
   ];
   constructor(
     private sidebar: NbSidebarService,
