@@ -6,6 +6,7 @@ const schema = mongoose.Schema({
     company: { type: mongoose.Types.ObjectId, ref: "Company" },
     users: [{ type: mongoose.Types.ObjectId, ref: "Users" }],
     form: Object,
+    answers: Array,
     created: Date,
     endDate: Date,
 })

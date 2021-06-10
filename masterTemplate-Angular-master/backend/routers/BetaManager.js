@@ -43,7 +43,7 @@ router.get('/getbyuser/:id', (req, res) => {
 
     Model.find({
         users: req.params.id
-    }).populate('company')
+    }).populate('company').populate('forms')
         .then(data => {
             console.log('Beta model fetched by id');
             res.status(200).json(data);

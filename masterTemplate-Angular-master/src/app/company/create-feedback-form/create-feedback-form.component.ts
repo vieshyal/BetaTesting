@@ -58,7 +58,7 @@ export class CreateFeedbackFormComponent implements OnInit {
       company: this.companyService.currentCompany._id,
       beta: '',
       users: Array,
-      endDate: '',
+      endDate: new Date(),
       created: new Date(),
       form: {},
     });
