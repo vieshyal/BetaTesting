@@ -48,6 +48,7 @@ app.use('/user', userRouter);
 app.use('/beta', BetaRouter);
 app.use('/company', CompanyRouter);
 app.use('/feedback', FeedbackRouter);
+app.use('/contactus', ContactusRouter);
 
 app.use('/util', utilRouter);
 

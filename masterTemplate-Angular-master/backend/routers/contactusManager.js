@@ -1,10 +1,10 @@
-const Model = require('../models/userModel');
+const Model = require('../models/contactusModel');
 const router = require('express').Router();
 
 router.post('/add', (req, res) => {
     new Model(req.body).save()
         .then(data => {
-            console.log('user data added');
+            console.log('problem is sent');
             res.status(200).json({ message: 'success' });
         })
         .catch(err => {
@@ -17,7 +17,7 @@ router.put('/update/:id', (req, res) => {
 
     Model.findByIdAndUpdate(req.params.id, req.body)
         .then(data => {
-            console.log('user data added');
+            console.log('');
             res.status(200).json({ message: 'success' });
         })
         .catch(err => {
@@ -56,7 +56,7 @@ router.get('/getbyname/:name', (req, res) => {
 
     Model.find(req.params.name)
         .then(data => {
-            console.log('user fetched by fullname');
+            console.log('user fetched by name');
             res.status(200).json(data);
         })
         .catch(err => {
@@ -82,7 +82,7 @@ router.delete('/delete/:id', (req, res) => {
 
     Model.findByIdAndDelete(req.params.id)
         .then(data => {
-            console.log('user deleted');
+            console.log('deleted');
             res.status(200).json(data);
         })
         .catch(err => {
@@ -90,5 +90,17 @@ router.delete('/delete/:id', (req, res) => {
             res.status(500).json(err);
         })
 })
+router.post('/addProblem', (req, res) => {
+    new Model(req.body).save()
+        .then(data => {
+            console.log('your message is sent');
+            res.status(200).json({ message: 'success' });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err);
+        })
+})
+
 
 module.exports = router;

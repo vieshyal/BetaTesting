@@ -15,11 +15,8 @@ export class ContactusService {
   }
 
 
-  addUser(data: any) {
-    return this.http.post(this.url + '/add', data);
-  }
   addProblem(data: any) {
-    return this.http.post(this.url + '/add', data);
+    return this.http.post(this.url + '/addproblem/',data);
   }
 
 
@@ -41,6 +38,9 @@ export class ContactusService {
 
   update(id: String, data: Object) {
     return this.http.put(this.url + '/update/' + id, data);
+  }
+  addContact(id, user_id) {
+    return this.http.put(this.url + '/pushupdate/' + id, { contacts: user_id });
   }
 
  

@@ -34,7 +34,7 @@ export class ContactusComponent implements OnInit {
       
       email: '',
       subject: '',
-      age: 0,
+      
       created: new Date(),
     
     });
