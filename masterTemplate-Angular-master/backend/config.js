@@ -3,6 +3,7 @@ const api_config = {
     conn_url: 'mongodb+srv://Vishal:8090@mystorage.bqwkt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     email: 'singhdigvijay703@gmail.com',
     app_password: 'jvqxoedbaklnjvcp',
+    origin: 'http://192.168.43.91'
     //don't use your gmail account password here generate an app password here https://myaccount.google.com/apppasswords?rapt=AEjHL4PCvI9JpZ9kICKuxTugeXd6Ho_CtJ7NzPzLe4GwOJPha11cHbil4x4ZWMQ52IsyRxIZeXJu_zwcr5O_njcbxtgv5sJD8w
 }
 

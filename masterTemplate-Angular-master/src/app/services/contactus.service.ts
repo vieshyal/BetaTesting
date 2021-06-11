@@ -8,17 +8,12 @@ import { app_config } from 'src/config';
 })
 export class ContactusService {
   url = app_config.api_url + '/contactus';
-  
-  constructor(private http: HttpClient, private router: Router) {
-  
-    
-  }
 
+  constructor(private http: HttpClient, private router: Router) {}
 
   addProblem(data: any) {
-    return this.http.post(this.url + '/addproblem/',data);
+    return this.http.post(this.url + '/add', data);
   }
-
 
   getById(id) {
     return this.http.get(this.url + '/getbyid/' + id);
@@ -42,8 +37,4 @@ export class ContactusService {
   addContact(id, user_id) {
     return this.http.put(this.url + '/pushupdate/' + id, { contacts: user_id });
   }
-
- 
-
-  
 }
