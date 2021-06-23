@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BetaService } from 'src/app/services/beta.service';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { UserService } from 'src/app/services/user.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-feedback',
   templateUrl: './add-feedback.component.html',
@@ -36,6 +36,7 @@ export class AddFeedbackComponent implements OnInit {
     // console.log(this.answerform);
     this.feedbackService.getById(this.answerform._id).subscribe((data: any) => {
       console.log(data);
+    
       if (data.answers) {
         data.answers.push(this.answerform.form);
       } else {
@@ -46,6 +47,7 @@ export class AddFeedbackComponent implements OnInit {
         .update(this.answerform._id, data)
         .subscribe((data) => {
           console.log(data);
+          
         });
     });
   }

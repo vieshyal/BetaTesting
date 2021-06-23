@@ -28,15 +28,16 @@ export class LayoutComponent implements OnInit {
       link: 'managecompanys',
     },
     {
-      title: 'View Dashboard',
-      icon: 'file-text',
-      link: 'dashboard',
+      title: 'View Queries',
+      icon: 'eye',
+      link: 'viewquery',
     },
     {
-      title: 'View Contacts',
-      icon: 'file-text',
-      link: 'showcontactus',
+      title: 'View Dashboard',
+      icon: 'eye',
+      link: 'dashboard',
     },
+   
   ];
   constructor(
     private sidebar: NbSidebarService,

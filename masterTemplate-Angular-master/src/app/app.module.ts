@@ -60,6 +60,7 @@ import { CompanyprofileComponent } from './company/companyprofile/companyprofile
 import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ViewqueryComponent } from './admin/viewquery/viewquery.component';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     EnrolledComponent,
     CompanyprofileComponent,
     AddFeedbackComponent,
+    ViewqueryComponent,
     
   ],
   imports: [

@@ -39,7 +39,7 @@ import { HomeComponent } from './home/home.component';
 import { EnrolledComponent } from './user/enrolled/enrolled.component';
 import { CompanyprofileComponent } from './company/companyprofile/companyprofile.component';
 import { AddFeedbackComponent } from './user/add-feedback/add-feedback.component';
-
+import { ViewqueryComponent } from './admin/viewquery/viewquery.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/app/signin', pathMatch: 'full' },
@@ -71,6 +71,7 @@ const routes: Routes = [
       { path: 'manageusers', component: ManageUsersComponent },
       { path: 'managecompanys', component: ManageCompanysComponent },
       { path: 'profile', component: ProfileComponent },
+      {path: 'viewquery', component:ViewqueryComponent},
     
     ],
   },
