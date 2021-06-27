@@ -38,6 +38,9 @@
                                 <a class="mt-3" nbButton [href]="beta.link" target="_blank">Get this {{beta.type}}</a>
 
                             </div>
+
+
+
                         </div>
                         <div>
                             <h3>Feedback Forms for this Beta Tests</h3>
@@ -48,15 +51,15 @@
                                             Form Published {{form.created | date}}
                                         </div>
                                         <div class="col-4">
-                                            <button nbButon [routerLink]="['/user/givefeedback', beta._id]"
+                                            <button nbButon
+                                                style="border-radius: 20px;height:40px;background-image: linear-gradient(to right, rgba(0, 217, 255, 0.404), rgba(255, 0, 157, 0.253));font-size: 20px;"
+                                                [routerLink]="['/user/givefeedback', beta._id]"
                                                 routerLinkActive="router-link-active">Give Feedback</button>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </div>
-
-
 
 
 
