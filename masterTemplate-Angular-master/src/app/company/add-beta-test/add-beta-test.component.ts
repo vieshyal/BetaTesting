@@ -42,6 +42,7 @@ export class AddBetaTestComponent implements OnInit {
       startDate: new Date(),
       endDate: new Date(),
       created: new Date(),
+      link: '',
     });
   }
 

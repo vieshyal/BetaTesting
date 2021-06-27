@@ -1,71 +1,119 @@
 <div class="col-md-11 mx-auto mt-5">
 
-    <nb-card accent="primary">
-        <nb-card-header>
-            <p class="h4">View Feedbacks</p>
-        </nb-card-header>
-        <nb-card-body>
-            <nb-accordion *ngIf="feedbackList">
-                <nb-accordion-item *ngFor="let feedback of feedbackList">
-                  <nb-accordion-item-header>
-                    {{feedback.name}}
-                  </nb-accordion-item-header>
-                  <nb-accordion-item-body>
-                      <div class="row">
-                          
-                          <div class="col-md-8">
-                            {{feedback.email}}
-                          </div>
+  <nb-card accent="primary">
+    <nb-card-header>
+      <p class="h4">View Feedbacks</p>
+    </nb-card-header>
+    <nb-card-body>
+      <nb-accordion *ngIf="feedbackList">
+        <nb-accordion-item *ngFor="let feedback of feedbackList">
+          <nb-accordion-item-header>
+            <div class="row w-100">
+              <div class="col-6">
+                {{feedback.beta.title}}
+              </div>
+              <div class="col-6">
+                {{feedback.created | date}}
+              </div>
+            </div>
+          </nb-accordion-item-header>
+          <nb-accordion-item-body>
+            <div class="row">
+              <div class="col-md-4">
+                <p>Responses Recieved :</p>
+              </div>
+              <div class="col-md-8">
+                {{feedback.answers.length}}
+              </div>
+            </div>
+            <hr>
+
+            <div class="card">
+              <div class="card-header">
+                Feedbacks Recieved
+              </div>
+              <div class="card-body">
+                <ul class="list-group">
+                  <li class="list-group-item" *ngFor="let ans of feedback.answers">
+                    <div class="row">
+                      <div class="col-6">
+                        {{ans.created | date}}
                       </div>
-                      <div class="row">
-                          
-                        <div class="col-md-8">
-                          {{feedback.question1}}
-                        </div>
+                      <div class="col-6">
+                        <button nbButton (click)="viewAns(ans)">View</button>
+                      </div>
                     </div>
-                    <div class="row">
-                          
-                        <div class="col-md-8">
-                          {{feedback.question2}}
-                        </div>
-                    </div>
-                    <div class="row">
-                          
-                        <div class="col-md-8">
-                          {{feedback.question3}}
-                        </div>
-                    </div>
-                    <div class="row">
-                          
-                        <div class="col-md-8">
-                          {{feedback.question4}}
-                        </div>
-                    </div>
-                    <div class="row">
-                          
-                        <div class="col-md-8">
-                          {{feedback.question5}}
-                        </div>
-                    </div>
-                    <div class="row">
-                          
-                        <div class="col-md-8">
-                          {{feedback.question6}}
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        
-                        
-                        <div class="col text-center">
-                            <button class="col-10" nbButton hero (click)="deletefee(feedback._id)" status  ="danger">Delete</button>
-                        </div>
-                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-8">
+                {{feedback.question1}}
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-8">
+                {{feedback.question2}}
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-8">
+                {{feedback.question3}}
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-8">
+                {{feedback.question4}}
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-8">
+                {{feedback.question5}}
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-md-8">
+                {{feedback.question6}}
+              </div>
+            </div>
+            <div class="row mt-5">
 
 
-                    
-                  </nb-accordion-item-body>
-                </nb-accordion-item>
-            </nb-accordion>
-        </nb-card-body>
-    </nb-card>
+              <div class="col text-center">
+                <button class="col-10" nbButton hero (click)="deletefee(feedback._id)" status="danger">Delete</button>
+              </div>
+            </div>
+
+
+
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+      </nb-accordion>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card accent="secondary" class="mt-5" *ngIf="selFeedback">
+    <nb-card-header>
+      <p class="h4">User Feedback</p>
+    </nb-card-header>
+    <nb-card-body>
+
+      <div class="question mt-4" *ngFor="let ques of selFeedback.questions">
+        <p class="mt-3">Question</p>
+        <p style="font-size: 1.2rem;">{{ques.name}}</p>
+        <p>Answer</p>
+        <p style="font-size: 1.2rem;">{{ques.answer}}</p>
+      </div>
+
+    </nb-card-body>
+  </nb-card>
+
 </div>

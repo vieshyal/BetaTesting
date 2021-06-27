@@ -11,6 +11,7 @@ const schema = mongoose.Schema({
     created: Date,
     thumb: String,
     startDate: Date,
+    link: String,
     endDate: Date,
 })
 

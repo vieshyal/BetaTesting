@@ -1,31 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbToastrService } from '@nebular/theme';
-import {FeedbackService} from 'src/app/services/feedback.service';
+import { FeedbackService } from 'src/app/services/feedback.service';
 
 import { CompanyService } from 'src/app/services/company.service';
 import { app_config } from 'src/config';
 import Swal from 'sweetalert2';
 
-
-
 @Component({
   selector: 'app-view-feedback',
   templateUrl: './view-feedback.component.html',
-  styleUrls: ['./view-feedback.component.css']
+  styleUrls: ['./view-feedback.component.css'],
 })
 export class ViewFeedbackComponent implements OnInit {
-
   feedbackList: any;
   loadingFeedback = true;
   url = app_config.api_url + '/';
+  selFeedback = null;
 
   constructor(
     public feedbackService: FeedbackService,
     private router: Router,
     private companyService: CompanyService,
     private toastrService: NbToastrService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.fetchTests();
@@ -58,7 +56,9 @@ export class ViewFeedbackComponent implements OnInit {
       }
     });
   }
-  updateFeedback(id) {}
 
- 
+  viewAns(ans) {
+    this.selFeedback = ans;
+    console.log(ans);
+  }
 }
